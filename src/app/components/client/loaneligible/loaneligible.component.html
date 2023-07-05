@@ -1,0 +1,152 @@
+<!---Reusing navbar component --->
+<app-navbar></app-navbar>
+
+<div class="container-fluid">
+    <div class="d-flex rule_container">
+        <div class="row">
+            <div class="col-lg-4">
+                <!---List of few criteria consider by bank -->
+                <h3 class="rule_heading">Eligibility criteria </h3>
+                <ul>
+                    <li>You need to be an employee of a private limited company or an employee in a public sector undertakings,
+                        including central, state and local bodies. </li>
+                    <li> You need to have a net income of 25,000 per month.</li>
+                    <li>Bank requires a minimum credit score of 650 to be eligible for Loans.</li>
+                    <li>If you have a good track record of repayment with previous loans, approval of the loan is faster
+                        and
+                        easier.</li>
+                    <li>You need to have a job for at least two years, with a minimum of 1 year with your current
+                        employer.</li>
+                </ul>
+            </div>
+            <div class="col-lg-8  col-12">
+                <div class="form_container">
+                    <div class="row">
+                        <div class="col-lg-1 col-md-0 col-0">
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-12 pt-3">
+                            <form [formGroup]="loanEligible">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="mb-2">
+                                            <label for="loanType" class="form-label">Loan Type </label>
+                                            <!---Based on Loan type , interest rate will be displayed using onchange()-->
+                                            <select class="form-select" class="input-field" formControlName="loanType" (change)="onChange($event)">
+                                                <option value="" selected>Choose type of Loan</option>
+                                                <option value="houseLoan">House Loan</option>
+                                                <option value="personalLoan">Personal Loan</option>
+                                                <option value="educationLoan">Education Loan</option>
+                                                <option value="vehicleLoan">Vehicle Loan</option>
+                                            </select>
+                                            <!--If Loan type is not selected then this error message will be displayed --->
+                                            <small
+                                                *ngIf="loanEligible.get('loanType')?.invalid && loanEligible.get('loanType')?.touched"
+                                                class="error">
+                                                Please select a Loan Type.
+                                            </small>
+                                        </div>
+                                      
+                                        <div class="mb-2">
+                                            <label for="loanAmount" class="form-label">Loan Amount </label>
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                              placeholder="Enter your Loan Amount" class="input-field"
+                                              formControlName="loanAmount">
+                                          <!---If loan amount is missing then this error message is displayed --->
+                                            <small *ngIf="loanEligible.get('loanAmount')?.hasError('required') && loanEligible.get('loanAmount')?.touched"
+                                              class="error">
+                                              Loan Amount is required<br>
+                                            </small>
+                                          <!---If loan amount is not provided based on validator pattern then this error message is displayed --->
+                                            <small *ngIf="loanEligible.get('loanAmount')?.hasError('pattern') && loanEligible.get('loanAmount')?.touched"
+                                              class="error">
+                                              Please enter a valid credentials<br>
+                                            </small>
+                                          <!---If loan amount is not in range (10,000 to 1crore) then this error message is displayed --->
+                                            <small *ngIf="loanEligible.get('loanAmount')?.hasError('maxValue') && loanEligible.get('loanAmount')?.touched"
+                                              class="error">
+                                              Loan Amount must be between 10000 - 1crore<br>
+                                            </small>
+                                          </div>
+                                        <br>
+                                        <div class="mb-2">
+                                            <label for="interest" class="form-label">Interest </label>
+                                            <div class="interest_div" disabled>{{interest}}%</div>
+                                        </div>
+                                        <br>
+                                    </div>
+                                    
+                                    <div class="col-lg-6 col-md-6 col-12">
+                                        <div class="mb-2">
+                                            <label for="tenure" class="form-label">Tenure </label>
+                                            <input type="number" class="form-control" id="exampleFormControlInput1"
+                                                placeholder="Enter in months" class="input-field" formControlName="tenure" min="3" max="300">
+                                                 <!---If loan Tenure is missing then this error message is displayed --->
+                                            <small *ngIf="loanEligible.get('tenure')?.invalid && loanEligible.get('tenure')?.touched"
+                                                class="error">
+                                                Tenure is required & is only available for 3-300 months
+                                            </small>
+                                        </div>
+                                        <br>
+                                        <div class="mb-2">
+                                            <label for="annualIncome" class="form-label">Annual Income </label>
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                                placeholder="Enter your Annual Income" class="input-field"
+                                                formControlName="annualIncome">
+                                                 <!---If Annual Income is missing then this error message is displayed --->
+                                                <small *ngIf="loanEligible.get('annualIncome')?.hasError('required') && loanEligible.get('annualIncome')?.touched"
+                                                class="error">
+                                                Annual Income is required<br>
+                                              </small>
+                                             <!---If Annual income is not provided based on validator pattern then this error message is displayed  --->
+                                              <small *ngIf="loanEligible.get('annualIncome')?.hasError('pattern') && loanEligible.get('annualIncome')?.touched"
+                                                class="error">
+                                                Please enter a valid credentials<br>
+                                              </small>
+                                              <small *ngIf="loanEligible.get('annualIncome')?.hasError('maxValue') && loanEligible.get('annualIncome')?.touched"
+                                                class="error">
+                                                Please provide legit credentials<br>
+                                              </small>
+                                            </div>
+                                        <br>
+                                        <div class="mb-2">
+                                            <label for="otherEmi" class="form-label">Other Emi </label>
+                                            <input type="text" class="form-control" id="exampleFormControlInput1"
+                                                placeholder="Enter your Expenses" class="input-field"
+                                                formControlName="otherEmi">
+                                                <!---If Other EMI is missing then this error message is displayed --->
+                                            <small
+                                                *ngIf="loanEligible.get('otherEmi')?.invalid && loanEligible.get('otherEmi')?.touched"
+                                                class="error">
+                                                OtherEmi is required.
+                                            </small>
+                                             <!---If Other EMI is not provided based on validator pattern then this error message is displayed --->
+                                            <ng-container
+                                                *ngIf="loanEligible.controls['otherEmi'].dirty && loanEligible.hasError('pattern','otherEmi')">
+                                                <small class="error">Please enter proper credentials</small>
+                                            </ng-container>
+                                           
+                                        </div>
+                                        <br>
+                                    </div>
+                                </div>
+                                <div class="result_container mt-2">
+                                    <p id="resulta" class="text-{{color}} fw-bold"></p>
+                                    <p id="resultb" class="text-{{color}} fw-bold"></p>
+                                    <p id="app" class="text-{{color}} fw-bold"></p>
+                                </div>
+                                <button class="btn btn-primary m-auto d-block w-50" type="submit" (click)="onSubmit()">Check</button>
+                            </form>
+                        </div>
+                        <div class="col-lg-1 col-md-0 col-0">
+                        </div>
+
+                    </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!---Reusing footer component ---->
+        <app-footer></app-footer>

@@ -1,0 +1,51 @@
+
+.card{
+    background-color: #0275d8;
+}
+
+.loan_heading{
+    color: #0275d8;
+}
+
+.apply-Btn {
+    margin-top: 1%;
+    height: 45px;
+    width: 300px;
+    align-items: center;
+    margin-left: 35%;
+}
+
+#services{
+    margin-top: 90px;
+}
+
+/* Media Queries for Responsive Layout */
+
+@media (max-width: 767px) {
+    .col-md-6 {
+        width: 100%;
+        margin: 12% 12%;
+    }
+
+    .apply-Btn {
+        margin: 15% 10%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .col-md-6 {
+        width: 50%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .col-lg-3 {
+        width: 50%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-3 {
+        width: 25%;
+    }
+}

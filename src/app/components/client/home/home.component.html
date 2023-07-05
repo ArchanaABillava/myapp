@@ -1,0 +1,175 @@
+<!--Reusing navbar component--->
+<app-navbar></app-navbar>
+
+<div class="container-fluid">
+    <section id="about" class="about section-padding">
+          <div class="container">
+            <div class="row">
+               <!---To display image in Home Page (Begin)-->
+                <div class="col-lg-5 col-md-5 col-12">
+                  <!----Image changes based on User and Admin login---->
+                    <div class="about_img">
+                      <ng-container *ngIf="this.role == 'user'">
+                        <img src="../../../../assets/home.png" alt="" class="home_img">
+                      </ng-container>
+                      <ng-container *ngIf="this.role == 'admin'">
+                        <img src="../../../../assets/customer_support.png" alt="" class="home_img">
+                      </ng-container>
+                    </div>
+                </div>
+                <!---End--->
+
+                <!--To display welcome message and brief description about ALPHA Bank (Begin)---->
+                <div class="col-lg-7 col-md-7 col-12 text_container">
+                    <div class="about-text">
+                          <h1 class="text-center fw-bold" >WELCOME TO <span class="text-primary">ALPHA</span> BANK</h1>
+                          <p class="text-center">ALPHA Bank was formed in 1955 at the initiative of the World Bank, the Government of India and representatives of Indian industry. The principal objective was to create a development financial institution for providing medium-term and long-term project financing to  every Indian.</p> 
+                    </div>
+                </div>
+                <!---End--->
+            </div>
+          </div>
+    </section>
+
+    <!--If its a user login then this part is displayed in home page--->
+    <ng-container *ngIf="this.role === 'user'">
+      <section id="services" class="portfolio section-padding mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-header text-center pb-3">
+                        <h2 class="text-primary fw-bold">OUR SERVICES</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+            <div class="row">
+              <!--Card related to Check eligibility---->
+                <div class="col-12 col-md-3 col-lg-3">
+                    <div class="card text-light text-center bg-white pb-2">
+                        <div class="card-body text-dark">
+                          <div class="img-area mb-4">
+                              <img src="https://leverageedublog.s3.ap-south-1.amazonaws.com/blog/wp-content/uploads/2020/01/18184732/GATE-Eligibility.png" class="img-fluid" alt="">
+                          </div>
+                            <h4 class="card-title">Check Eligibilty</h4>
+                            <p>Eligibility criteria to get a loan varies based on the type of loan.So check  eligibility and apply for the right loan with better interest rate .</p><hr>
+                             <button class="btn bg-primary text-light"><a routerLink="loaneligible"  class="btn-dec card-title" style="width: 50px;height: 10px;">Check </a></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3 col-lg-3">
+                  <div class="card text-light text-center bg-white pb-2">
+                      <div class="card-body text-dark">
+                        <div class="img-area mb-4">
+                            <img src="https://www.elearnmarkets.com/site/assets/img/calculator_icon/Banner-Icon.png" class="img-fluid" alt="" style="height:160px;width: 100%;">
+                        </div>
+                          <h4 class="card-title">Loan Calculator</h4>
+                          <p>Calculate your Loan EMI based on different loan, for specific amount, tenure and rate of interest. Our Bank provide best interest rate.</p><hr>
+                          <button class="btn bg-primary text-light"><a (click)="navigateToCalc()"  class="btn-dec card-title" style="width: 50px;height: 10px;">check</a></button>
+                          
+                      </div>
+                  </div>
+              </div>
+                <!--Card related to Loan-->
+                <div class="col-12 col-md-3 col-lg-3">
+                    <div class="card text-light text-center bg-white pb-2">
+                        <div class="card-body text-dark">
+                          <div class="img-area mb-4">
+                              <img src="https://paytmblogcdn.paytm.com/wp-content/uploads/2021/07/Creditcard_12_Credit-Card-Loan-Vs-Personal-Loan-800x500.png" class="img-fluid" alt="">
+                          </div>
+                            <h4 class="card-title">Loan</h4>
+                            <p>We offer a wide range of loan options to suit your unique needs and financial situation ,we have the right loan for you.</p><hr>
+                            <button class="btn bg-primary text-light"><a routerLink="loantype"  class="btn-dec card-title" style="width: 50px;height: 10px;">Apply </a></button>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!--Card related to Loan Status-->
+                <div class="col-12 col-md-3 col-lg-3">
+                    <div class="card text-light text-center bg-white pb-2">
+                        <div class="card-body text-dark">
+                          <div class="img-area mb-4">
+                              <img src="https://img.freepik.com/premium-vector/time-is-money-business-finance-concept-quick-payment-clock-cash-fast-loan-easy-credit-time-money-saving-timer-finance-quick-money-3d-rendering-vector-illustration_165488-3904.jpg" class="img-fluid" alt="">
+                          </div>
+                            <h4 class="card-title">Loan Status</h4>
+                            <p>Track your Loan application and know step by step  updates  about your application and enjoy our service.</p><hr>
+                            <button class="btn bg-primary text-light"><a type="button"  class="btn-dec card-title" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 50px;height: 10px;">View</a></button>
+                        </div>
+                    </div>
+                </div>   
+               </div>
+            </div>
+        </div>
+      </section>
+      <!---If User clicks on Loan Status , then this part of code is executed where user gets his all loan status inside a modal-->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <ng-container *ngIf="this.LoanArray.length > 0">
+              <div class="modal-header">
+                <h3 class="text-primary card-title text-center" id="exampleModalLabel">LOAN STATUS</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <!----User Loan status is displayed in table format---->
+                  <div class="table-container">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>Loan ID</th>
+                            <th>Loan Type</th>
+                            <th class="area-hidden">Loan Amount</th>
+                            <th class="area-hidden">Tenure(months)</th>
+                            <th>Loan Status</th>
+                            <th class="area-hidden">Loan Comments</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let loan of LoanArray">
+                            <td class="fw-bold text-primary" >{{ loan.loanId }} </td>
+                            <td style="text-transform: capitalize;">{{ loan.loanType }}</td>
+                            <td class="area-hidden">&#x20B9;{{ loan.loanAmount }}</td>
+                            <td class="area-hidden">{{ loan.tenure }}</td>
+                            <ng-container *ngIf="loan.loanStatus == 'Approved'">
+                              <td class="text-success fw-bold">{{loan.loanStatus}}</td>
+                            </ng-container>
+                            <ng-container *ngIf="loan.loanStatus == 'Rejected'">
+                              <td class="text-danger fw-bold">{{loan.loanStatus}}</td>
+                            </ng-container>
+                            <ng-container *ngIf="loan.loanStatus == 'Need More Info'">
+                              <td class="text-primary fw-bold">{{loan.loanStatus}}</td>
+                            </ng-container>
+                            <ng-container *ngIf="loan.loanStatus == 'Processing'">
+                              <td class="text-primary fw-bold">Processing</td>
+                            </ng-container>
+                            <td class="area-hidden">{{loan.comment}}<br>
+                              <ng-container *ngIf="loan.loanStatus == 'Need More Info'">
+                                <a [href]="['update/'+loan.loanId]">Edit<span class="fa fa-pencil"></span></a>
+                              </ng-container>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div> 
+              </div>
+            </ng-container>
+            <ng-container *ngIf="this.LoanArray.length == 0">
+              <div class="modal-header">
+                <!--If there is no Loan applied by user then this part is displayed--->
+                <h3 class="text-primary card-title text-center" id="exampleModalLabel">LOAN STATUS</h3>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <h2 class="text-center card-title">No Loans taken</h2>
+              </div>
+          </ng-container>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+    <!--Reusing footer component--->
+      <app-footer></app-footer>    
+</div>
+
+
+

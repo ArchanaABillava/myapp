@@ -1,0 +1,131 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-md-2 col-0">    
+        </div>
+        <!--Authentication Page--->
+        <div class="col-lg-4 col-md-8 col-12">
+                <div class="login-container">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title fw-bold text-decoration-underline text-center">Verification</h3>
+                        <br>
+                        <span class="info">Please check your registered Email for OTP</span>
+                     <div class="panel-body p-3">
+                        <form [formGroup]="authLogForm">
+                            <div class="form-group pt-3">
+                                <label for="customerid">User Id : <span class="customer_id">{{text}}</span></label>                
+                            </div>
+                            <div class="form-group pt-3">
+                                <label for="tokenotp">One Time Password :</label>
+                                <div class="input-field" [class.error]="authLogForm.controls['tokenotp'].dirty && authLogForm.hasError('required','tokenotp')">
+                                    <span class="fa fa-key pe-2"></span>
+                                    <input formControlName="tokenotp" [type]="type" placeholder="Please enter your OTP" (change)="OnChange($event)"> 
+                                    <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                                </div>
+                                <small class="otp_time">OTP is valid only for {{ minutes }}:{{ seconds | number: '2.0' }}</small>
+                            </div>             
+                            <small  *ngIf="authLogForm.controls['tokenotp'].dirty && authLogForm.hasError('required','tokenotp')"  class="text-danger">*Otp is required</small>
+                            <button (click)="onSubmit()" type="submit" class="btn btn-primary mt-4 w-100 d-block m-auto">Login</button>
+                        </form>
+                    </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-4 col-md-2 col-0">
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+    <div class="row">
+       <div class="card">
+        <div class="card-title">
+            <h1>Login</h1>
+        </div>
+        <div class="card-body">
+            <div class="col-lg-6">
+                <div class="panel-body p-3">
+                    <form [formGroup]="authLogForm">
+                        <div class="form-group pt-3">
+                            <div class="input-field" [class.error]="authLogForm.controls['email'].dirty && authLogForm.hasError('required','email')">
+                                <input formControlName="email" type="email" placeholder="UserId">
+                            </div>
+                        </div>
+                        <small *ngIf="authLogForm.controls['email'].dirty && authLogForm.hasError('required','email')" class="text-danger">*UserId is required</small>
+                        <div class="form-group pt-3">
+                            <div class="input-field" [class.error]="authLogForm.controls['password'].dirty && authLogForm.hasError('required','password')">
+                                <input formControlName="password" [type]="type" placeholder="placeholder">
+                                <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                            </div>
+                        </div> 
+                        <small  *ngIf="authLogForm.controls['password'].dirty && authLogForm.hasError('required','password')"  class="text-danger">*Password is required</small>
+                        <div class="mt-4">
+                            <a id="forget" class="font-weight-bold">Forget password?</a>
+                        </div>
+                        <button (click)="onSubmit()" type="submit" class="btn btn-primary mt-4 w-75">Login</button>
+                        <div class="text-center pt-4 text-muted">
+                            Dont have an account <a id="forget" routerLink="/signup">Signup</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+       </div>
+        <div class="col-lg-6">
+
+        </div>
+    </div>
+</div> -->

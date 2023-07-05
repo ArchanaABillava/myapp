@@ -1,0 +1,81 @@
+.title{
+    text-align: center;
+    margin: 20px 20px 10px 10px;
+    font-weight: bold;
+  }
+  input,label{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+  .nav-tabs .nav-link.active {
+    color: #ffffff;
+    background-color: #4f5bf2;
+    border-color: #4f5bf2;
+  }
+
+  nav{
+    border-bottom: 1px solid grey;
+  }
+
+  .navtab{
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .container-fluid{
+    height: 100vh;
+  }
+
+  h1{
+    font-variant-caps: petite-caps;
+    font-size: 3rem;
+    color: #009fff;
+  }
+  .container{
+    height: 100%;
+    margin-top: 120px;
+    text-align: center;
+  }
+  .loan-table-container {
+    width: 100%;
+    overflow-x: auto;
+    height: 100%;
+  }
+  .allloan-table-container {
+    width: 100%;
+    overflow-x: auto;
+    height: 100%;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .table th {
+    background-color: #95c8f1;
+  }
+  
+  .status_color{
+  background-color: #95c8f1;
+
+  }
+  
+  /* Media queries for responsive design */
+  @media screen and (max-width: 768px) {
+    .table th,
+    .table td {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }

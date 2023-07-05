@@ -1,0 +1,262 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-3 col-md-2 col-0">    
+        </div>
+        <div class="col-lg-6 col-md-8 col-12">
+                <div class="signup-container">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title fw-bold text-decoration-underline text-center">Sign-Up</h3>
+                     <div class="panel-body p-3">
+                        <form  [formGroup]="signupForm">
+                            <div class="row">
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group pt-3">
+                                        <label for="userName">FullName :</label>
+                                        <div class="input-field" [class.error]="signupForm.controls['userName'].dirty && signupForm.hasError('required','userName')">
+                                            <span class="fa fa-user-circle pe-2"></span>
+                                            <input formControlName="userName" type="text" placeholder="Enter your fullname">
+                                        </div>
+                                    </div>
+                                    <small *ngIf="signupForm.controls['userName'].dirty && signupForm.hasError('required','userName')" class="text-danger">*userName is required</small>
+                                    <ng-container
+                                        *ngIf="signupForm.controls['userName'].dirty && signupForm.hasError('pattern','userName')">
+                                        <small class="text-danger">Please enter your registered name</small>
+                                    </ng-container>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group pt-3">
+                                        <label for="accountNum">Account-Number :</label>
+                                        <div class="input-field" [class.error]="signupForm.controls['accountNum'].dirty && signupForm.hasError('required','accountNum')">
+                                            <span class="fa fa-address-book pe-2"></span>
+                                            <input formControlName="accountNum" type="text" placeholder="Enter your Account Number">
+                                        </div>
+                                    </div>
+                                    <small *ngIf="signupForm.controls['accountNum'].dirty && signupForm.hasError('required','accountNum')" class="text-danger">*accountNumber is required</small>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group pt-3">
+                                        <label for="email">Email :</label>
+                                        <div class="input-field" [class.error]="signupForm.controls['email'].dirty && signupForm.hasError('required','email')">
+                                            <span class="fa fa-envelope pe-2"></span>
+                                            <input formControlName="email" type="email" placeholder="Enter your registered Email-Id">
+                                        </div>
+                                    </div>
+                                    <small *ngIf="signupForm.controls['email'].dirty && signupForm.hasError('required','email')" class="text-danger">*email is required</small>
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                    <div class="form-group pt-3">
+                                        <label for="contactNum">Phone :</label>
+                                        <div class="input-field" [class.error]="signupForm.controls['contactNum'].dirty && signupForm.hasError('required','contactNum')">
+                                            <span class="fa fa-phone-square pe-2"></span>
+                                            <input formControlName="contactNum" type="text" placeholder="Please Enter your phone number">
+                                        </div>
+                                    </div>
+                                    <small *ngIf="signupForm.controls['contactNum'].dirty && signupForm.hasError('required','contactNum')" class="text-danger">*contactNumber is required</small>
+                                </div>
+                            </div>
+
+                           <div class="row">
+                            <div class="col-lg-6 col-12">
+                                <div class="form-group pt-3">
+                                    <label for="customerid">User-Id :</label>
+                                    <div class="input-field" [class.error]="signupForm.controls['customerid'].dirty && signupForm.hasError('required','customerid')">
+                                        <span class="fa fa-id-badge pe-2"></span>
+                                        <input formControlName="customerid" type="text" placeholder="Please Enter Customer-Id">
+                                    </div>
+                                </div>
+                                <small *ngIf="signupForm.controls['customerid'].dirty && signupForm.hasError('required','customerid')" class="text-danger">*Customerid is required</small>
+                                <ng-container *ngIf="signupForm.controls['customerid'].dirty && signupForm.hasError('pattern','customerid')" >
+                                    <small class="text-danger">*Customerid should not have spaces</small>
+                                </ng-container>
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <div class="form-group pt-3">
+                                    <label for="password">Password :</label>
+                                    <div class="input-field" [class.error]="signupForm.controls['password'].dirty && signupForm.hasError('required','password')">
+                                        <span class="fa fa-key pe-2"></span>
+                                        <input formControlName="password" [type]="type" placeholder="Enter your password">
+                                        <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                                    </div>
+                                </div> 
+                                <small  *ngIf="signupForm.controls['password'].dirty && signupForm.hasError('required','password')"  class="text-danger">*password is required</small>
+                            </div>
+                           </div>
+                            <button (click)="onSubmit()" type="submit" class="btn btn-primary mt-4 w-100 d-block m-auto">Signup</button>
+                            <div class="text-center pt-4 text-muted">
+                                <span class="nextpage">Already have an  account?<a id="forget" routerLink="/login">&nbsp;Login</a></span>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-3 col-md-2 col-0">
+            </div>
+        </div>
+        
+    </div>
+
+    <ngx-loading
+    [show]="loading"
+    [config]="{ backdropBorderRadius: '3px' }"
+  ></ngx-loading>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+    <div class="row">
+       <div class="card">
+        <div class="card-title">
+            <h1>Login</h1>
+        </div>
+        <div class="card-body">
+            <div class="col-lg-6">
+                <div class="panel-body p-3">
+                    <form [formGroup]="loginForm">
+                        <div class="form-group pt-3">
+                            <div class="input-field" [class.error]="loginForm.controls['email'].dirty && loginForm.hasError('required','email')">
+                                <input formControlName="email" type="email" placeholder="UserId">
+                            </div>
+                        </div>
+                        <small *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required','email')" class="text-danger">*UserId is required</small>
+                        <div class="form-group pt-3">
+                            <div class="input-field" [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">
+                                <input formControlName="password" [type]="type" placeholder="placeholder">
+                                <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                            </div>
+                        </div> 
+                        <small  *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')"  class="text-danger">*Password is required</small>
+                        <div class="mt-4">
+                            <a id="forget" class="font-weight-bold">Forget password?</a>
+                        </div>
+                        <button (click)="onSubmit()" type="submit" class="btn btn-primary mt-4 w-75">Login</button>
+                        <div class="text-center pt-4 text-muted">
+                            Dont have an account <a id="forget" routerLink="/signup">Signup</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+       </div>
+        <div class="col-lg-6">
+
+        </div>
+    </div>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+    <div class="card">
+        <div class="card-title">
+            <h1>Signup</h1>
+        </div>
+        <div class="row">
+        <div class="card-body">
+            <div class="col-lg-6">
+                <div class="panel-body p-3">
+                   
+                </div>
+            </div>
+        </div>
+       </div>
+        <div class="col-lg-6">
+
+        </div>
+    </div>
+</div> -->

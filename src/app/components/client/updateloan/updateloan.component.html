@@ -1,0 +1,644 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid">
+    <div class="navtab">
+        <nav class="mb-3">
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <!-- <button class="nav-link active" id="loan-request-tab" data-bs-toggle="tab"
+                    data-bs-target="#loan-request" type="button" role="tab" aria-controls="loan-request"
+                    aria-selected="true">Personal Information</button> -->
+                <button class="nav-link active" id="loan-details-tab" data-bs-toggle="tab" data-bs-target="#loan-details"
+                    type="button" role="tab" aria-controls="loan-details" aria-selected="true">Loan Details</button>
+                <button class="nav-link" id="search-tab" data-bs-toggle="tab" data-bs-target="#search" type="button"
+                    role="tab" aria-controls="search" aria-selected="false">Documents</button>
+                <!-- <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+                    type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
+                    Loan-Status</button> -->
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="tab-content" id="nav-tabContent">
+        <!-- <div class="tab-pane fade show active" id="loan-request" role="tabpanel" aria-labelledby="loan-request-tab"
+            tabindex="0">
+            <div class="container card p-4">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-12">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label fw-bold">Name :</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                value="{{ loanDetailsObj.customerAccountInfo.userName }}" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label fw-bold">Account Number: </label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                value="{{loanDetailsObj.customerAccountInfo.accountNum}}" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label fw-bold">Aadhar Number: </label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                value="{{loanDetailsObj.customerAccountInfo.aadharNum}}" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label fw-bold">Gender :</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                value="{{ loanDetailsObj.customerAccountInfo.gender }}" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label fw-bold">Address :</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                value="{{ loanDetailsObj.customerAccountInfo.addresss }}" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label fw-bold">Mobile Number: :</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                value="{{ loanDetailsObj.customerAccountInfo.contactNum }}" disabled>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-12">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label fw-bold">Email ID: :</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                value="{{ loanDetailsObj.customerAccountInfo.email }}" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label fw-bold">PAN Number :</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                value="{{ loanDetailsObj.customerAccountInfo.panNum }}" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label fw-bold">Employee Type :</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                value="{{ loanDetailsObj.customerAccountInfo.empType }}" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label fw-bold">Annual Income :</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                value="{{ loanDetailsObj.loanDetails.annualIncome }}" disabled>
+                        </div>
+                        <ng-container *ngIf="loanDetailsObj.customerAccountInfo.empType ==='salaried'">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label fw-bold">Organization Name
+                                    :</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                    value="{{ loanDetailsObj.customerAccountInfo.organizationName }}" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label fw-bold">Organization Address
+                                    :</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                    value="{{ loanDetailsObj.customerAccountInfo.organizationAddress }}" disabled>
+                            </div>
+                        </ng-container>
+                        <ng-container *ngIf="empType =='Self Employed'">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label fw-bold">Occupation Name
+                                    :</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                    value="{{ loanDetailsObj.customerAccountInfo.occupationName }}" disabled>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label fw-bold">Occupation Address
+                                    :</label>
+                                <input type="email" class="form-control" id="exampleFormControlInput1"
+                                    value="{{ loanDetailsObj.customerAccountInfo.occupationAddress }}" disabled>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div> -->
+
+        <div class="tab-pane fade show active" id="loan-details" role="tabpanel" aria-labelledby="loan-details-tab" tabindex="0">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-2 col-md-2 col-12"></div>
+                    <div class="col-lg-8 col-md-8 col-12">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <form [formGroup]="updateLoanForm">
+
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="mb-2">
+                                                <label for="accountnum" class="form-label">Accountnumber :</label>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1"
+                                                    class="input-field" placeholder="" disabled
+                                                    value={{this.accountNum}}>
+                                            </div>
+                                            <br>
+                                            <div class="mb-2">
+                                                <label for="loanType" class="form-label">Loan Type :</label>
+                                                <select class="form-select" class="input-field" disabled
+                                                    value={{this.type}}>
+                                                    <option value="" selected>Choose type of Loan</option>
+                                                    <option value="houseLoan">House Loan</option>
+                                                    <option value="personalLoan">Personal Loan</option>
+                                                    <option value="educationLoan">Education Loan</option>
+                                                    <option value="vehicleLoan">Vehicle Loan</option>
+                                                </select>
+
+
+                                            </div>
+
+                                            <div class="mb-2">
+                                                <label for="LoanPurpose" class="form-label">Loan Purpose :</label>
+                                                <select class="form-select" class="input-field"
+                                                    formControlName="loanPurpose" [(ngModel)]="selectedLoanPurpose">
+                                                    <ng-container *ngIf="this.type == 'houseLoan'">
+                                                        <option value="purchase of new Home">New Home Purchase</option>
+                                                        <option value="renovation of old Home">Old home renovation
+                                                        </option>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="this.type == 'personalLoan'">
+                                                        <option value="vacation">Vacation</option>
+                                                        <option value="wedding">Wedding</option>
+                                                        <option value="medical emergency">Medical Emergency</option>
+                                                        <option value="others">Others</option>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="this.type == 'vehicleLoan'">
+                                                        <option value="purchase of new vehicle">Purchase of New Vehicle
+                                                        </option>
+                                                        <option value="Repair of vehicle">Vehicle Repair</option>
+                                                        <option value="purchase of old vehicle">Purchase of old vehicle
+                                                        </option>
+                                                    </ng-container>
+                                                    <ng-container *ngIf="this.type == 'educationLoan'">
+                                                        <option value="payment of college fees">College Fee payment
+                                                        </option>
+                                                        <option value="payment of hostel fees">Hostel Fee payment
+                                                        </option>
+                                                    </ng-container>
+                                                </select>
+                                            </div>
+                                            <small
+                                                *ngIf="updateLoanForm.get('loanPurpose')?.invalid && updateLoanForm.get('loanPurpose')?.touched"
+                                                class="error">
+                                                Please choose Loan Purpose.
+                                            </small>
+
+                                            <br>
+
+                                            <div class="mb-2">
+                                                <label for="loanAmount" class="form-label">Loan Amount :</label>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1"
+                                                    placeholder="Enter your Loan Amount" class="input-field"
+                                                    formControlName="loanAmount">
+
+                                                <small
+                                                    *ngIf="updateLoanForm.get('loanAmount')?.hasError('required') && updateLoanForm.get('loanAmount')?.touched"
+                                                    class="error">
+                                                    Loan Amount is required<br>
+                                                </small>
+
+                                                <small
+                                                    *ngIf="updateLoanForm.get('loanAmount')?.hasError('pattern') && updateLoanForm.get('loanAmount')?.touched"
+                                                    class="error">
+                                                    Please enter a valid credentials<br>
+                                                </small>
+
+                                                <small
+                                                    *ngIf="updateLoanForm.get('loanAmount')?.hasError('maxValue') && updateLoanForm.get('loanAmount')?.touched"
+                                                    class="error">
+                                                    Loan Amount must be between 10000 - 1crore<br>
+                                                </small>
+
+                                            </div>
+                                            <br>
+                                            <div class="mb-2">
+                                                <label for="interest" class="form-label">Interest :</label>
+                                                <div class="interest_div" disabled>{{interest}}%</div>
+                                            </div>
+                                            <br>
+                                            <ng-container *ngIf="this.type == 'personalLoan'">
+                                                <div class="mb-2">
+                                                    <label for="ongoingLoan" class="form-label">Any Ongoing Loan
+                                                        :</label>
+                                                    <select class="form-select" class="input-field"
+                                                        formControlName="ongoingLoan">
+                                                        <option value="" selected>Choose Yes/No</option>
+                                                        <option value="yes">Yes</option>
+                                                        <option value="no">No</option>
+                                                    </select>
+                                                </div>
+                                                <small
+                                                    *ngIf="updateLoanForm.get('ongoingLoan')?.invalid && updateLoanForm.get('ongoingLoan')?.touched"
+                                                    class="error">
+                                                    Please choose Yes/No.
+                                                </small>
+                                            </ng-container>
+                                            <ng-container *ngIf="this.type == 'vehicleLoan'">
+                                                <div class="mb-2">
+                                                    <label for="vehicleType" class="form-label">Vehicle Type:</label>
+                                                    <select class="form-select" class="input-field"
+                                                        formControlName="vehicleType">
+                                                        <option value="" selected>Choose Type of vehicle</option>
+                                                        <option value="car">Car</option>
+                                                        <option value="bike">Bike</option>
+                                                        <option value="bus">Bus</option>
+                                                        <option value="Truck">Truck</option>
+                                                    </select>
+                                                </div>
+                                                <small
+                                                    *ngIf="updateLoanForm.get('vehicleType')?.invalid && updateLoanForm.get('vehicleType')?.touched"
+                                                    class="error">
+                                                    Please choose type of Vehicle
+                                                </small>
+                                            </ng-container>
+                                            <ng-container *ngIf="this.type == 'educationLoan'">
+                                                <div class="mb-2">
+                                                    <label for="educationType" class="form-label">Education
+                                                        Type:</label>
+                                                    <select class="form-select" class="input-field"
+                                                        formControlName="educationType">
+                                                        <option value="" selected>Choose Type of Education</option>
+                                                        <option value="High school">High school</option>
+                                                        <option value="Pre University">Pre University</option>
+                                                        <option value="UG">UG</option>
+                                                        <option value="PG">PG</option>
+
+                                                    </select>
+                                                </div>
+                                                <small
+                                                    *ngIf="updateLoanForm.get('educationType')?.invalid && updateLoanForm.get('educationType')?.touched"
+                                                    class="error">
+                                                    Please choose type of Education
+                                                </small>
+                                            </ng-container>
+                                            <ng-container *ngIf="this.type == 'houseLoan'">
+                                                <div class="mb-2">
+                                                    <label for="propertyValue" class="form-label">Property Value
+                                                        :</label>
+                                                    <input type="text" class="form-control"
+                                                        id="exampleFormControlInput1"
+                                                        placeholder="Enter your Property Value" class="input-field"
+                                                        formControlName="propertyValue">
+                                                    <small
+                                                        *ngIf="updateLoanForm.get('propertyValue')?.invalid && updateLoanForm.get('propertyValue')?.touched"
+                                                        class="error">
+                                                        Property Value is required.
+                                                    </small>
+                                                    <ng-container
+                                                        *ngIf="updateLoanForm.controls['propertyValue'].dirty && updateLoanForm.hasError('pattern','propertyValue')">
+                                                        <small class="error">Please enter proper credentials</small>
+                                                    </ng-container>
+
+                                                </div>
+                                                <br>
+                                                <div class="mb-2">
+                                                    <label for="propertyArea" class="form-label">Property Area :</label>
+                                                    <input type="text" class="form-control"
+                                                        id="exampleFormControlInput1" placeholder="Enter in sqfts"
+                                                        class="input-field" formControlName="propertyArea">
+                                                    <small
+                                                        *ngIf="updateLoanForm.get('propertyArea')?.invalid && updateLoanForm.get('propertyArea')?.touched"
+                                                        class="error">
+                                                        Property Area is required.
+                                                    </small>
+                                                    <ng-container
+                                                        *ngIf="updateLoanForm.controls['propertyArea'].dirty && updateLoanForm.hasError('pattern','propertyArea')">
+                                                        <small class="error">Please enter proper credentials</small>
+                                                    </ng-container>
+
+                                                </div>
+                                                <br>
+                                            </ng-container>
+                                            <ng-container *ngIf="this.type == 'vehicleLoan'">
+                                                <div class="mb-2">
+                                                    <label for="vehiclePrice" class="form-label">Vehicle Price :</label>
+                                                    <input type="text" class="form-control"
+                                                        id="exampleFormControlInput1"
+                                                        placeholder="Enter price of vehicle" class="input-field"
+                                                        formControlName="vehiclePrice">
+                                                    <small
+                                                        *ngIf="updateLoanForm.get('vehiclePrice')?.invalid && updateLoanForm.get('vehiclePrice')?.touched"
+                                                        class="error">
+                                                        Vehicle Price is required.
+                                                    </small>
+                                                    <ng-container
+                                                        *ngIf="updateLoanForm.controls['vehiclePrice'].dirty && updateLoanForm.hasError('pattern','vehiclePrice')">
+                                                        <small class="error">Please enter proper credentials</small>
+                                                    </ng-container>
+
+                                                </div>
+                                                <br>
+                                                <div class="mb-2">
+                                                    <label for="vehiclercNumber" class="form-label">Vehicle RC-Number
+                                                        :</label>
+                                                    <input type="text" class="form-control"
+                                                        id="exampleFormControlInput1"
+                                                        placeholder="Enter RC Number of Vehicle" class="input-field"
+                                                        formControlName="vehicleRCNumber">
+                                                    <small
+                                                        *ngIf="updateLoanForm.get('vehicleRCNumber')?.invalid && updateLoanForm.get('vehicleRCNumber')?.touched"
+                                                        class="error">
+                                                        Vehicle RC-Number is required.
+                                                    </small>
+                                                    <ng-container
+                                                        *ngIf="updateLoanForm.controls['vehicleRCNumber'].dirty && updateLoanForm.hasError('pattern','vehicleRCNumber')">
+                                                        <small class="error">Please enter proper credentials</small>
+                                                    </ng-container>
+
+                                                </div>
+                                                <br>
+                                            </ng-container>
+                                            <ng-container *ngIf="this.type == 'educationLoan'">
+                                                <div class="mb-2">
+                                                    <label for="totalFee" class="form-label">Total Fees :</label>
+                                                    <input type="text" class="form-control"
+                                                        id="exampleFormControlInput1"
+                                                        placeholder="Enter fees for the course" class="input-field"
+                                                        formControlName="totalFee">
+                                                    <small
+                                                        *ngIf="updateLoanForm.get('totalFee')?.hasError('required') && updateLoanForm.get('totalFee')?.touched"
+                                                        class="error">
+                                                        Total Fees is required<br>
+                                                    </small>
+
+                                                    <small
+                                                        *ngIf="updateLoanForm.get('totalFee')?.hasError('pattern') && updateLoanForm.get('totalFee')?.touched"
+                                                        class="error">
+                                                        Please enter a valid credentials<br>
+                                                    </small>
+
+                                                    <small
+                                                        *ngIf="updateLoanForm.get('totalFee')?.hasError('maxValue') && updateLoanForm.get('totalFee')?.touched"
+                                                        class="error">
+                                                        Fees must be between 10000 - 10 Lakhs<br>
+                                                    </small>
+
+                                                </div>
+                                                <br>
+                                                <div class="mb-2">
+                                                    <label for="courseDuration" class="form-label">Course Duration
+                                                        :</label>
+                                                    <input type="text" class="form-control"
+                                                        id="exampleFormControlInput1"
+                                                        placeholder="Enter duration of the course in years"
+                                                        class="input-field" formControlName="courseDuration">
+
+                                                    <small
+                                                        *ngIf="updateLoanForm.get('courseDuration')?.hasError('required') && updateLoanForm.get('courseDuration')?.touched"
+                                                        class="error">
+                                                        Course Duration is required<br>
+                                                    </small>
+
+                                                    <small
+                                                        *ngIf="updateLoanForm.get('courseDuration')?.hasError('pattern') && updateLoanForm.get('courseDuration')?.touched"
+                                                        class="error">
+                                                        Please enter a valid credentials<br>
+                                                    </small>
+
+                                                    <small
+                                                        *ngIf="updateLoanForm.get('courseDuration')?.hasError('maxValue') && updateLoanForm.get('courseDuration')?.touched"
+                                                        class="error">
+                                                        Please provide valid Duration<br>
+                                                    </small>
+
+                                                </div>
+                                                <br>
+                                            </ng-container>
+                                        </div>
+                                        <!-- <div class="col-lg-2"></div> -->
+                                        <div class="col-lg-6 col-md-6 col-12">
+
+                                            <div class="mb-2">
+                                                <label for="tenure" class="form-label">Tenure :</label>
+                                                <input type="number" class="form-control" id="exampleFormControlInput1"
+                                                    placeholder="Enter in months" class="input-field"
+                                                    formControlName="tenure" min="3" max="300">
+                                                <small
+                                                    *ngIf="updateLoanForm.get('tenure')?.invalid && updateLoanForm.get('tenure')?.touched"
+                                                    class="error">
+                                                    Tenure is required and is available for 3-300 months.
+                                                </small>
+                                            </div>
+                                            <br>
+
+                                            <div class="mb-2">
+                                                <label for="annualIncome" class="form-label">Annual Income :</label>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1"
+                                                    placeholder="Enter your Annual Income" class="input-field"
+                                                    formControlName="annualIncome">
+                                                <small
+                                                    *ngIf="updateLoanForm.get('annualIncome')?.hasError('required') && updateLoanForm.get('annualIncome')?.touched"
+                                                    class="error">
+                                                    Annual Income is required<br>
+                                                </small>
+
+                                                <small
+                                                    *ngIf="updateLoanForm.get('annualIncome')?.hasError('pattern') && updateLoanForm.get('annualIncome')?.touched"
+                                                    class="error">
+                                                    Please enter a valid credentials<br>
+                                                </small>
+
+                                                <small
+                                                    *ngIf="updateLoanForm.get('annualIncome')?.hasError('maxValue') && updateLoanForm.get('annualIncome')?.touched"
+                                                    class="error">
+                                                    Please provide legit credentials<br>
+                                                </small>
+
+                                            </div>
+                                            <br>
+                                            <div class="mb-2">
+                                                <label for="otherEmi" class="form-label">OtherEmi :</label>
+                                                <input type="text" class="form-control" id="exampleFormControlInput1"
+                                                    placeholder="Enter your Expenses" class="input-field"
+                                                    formControlName="otherEmi">
+                                                <small
+                                                    *ngIf="updateLoanForm.get('otherEmi')?.invalid && updateLoanForm.get('otherEmi')?.touched"
+                                                    class="error">
+                                                    OtherEmi is required.
+                                                </small>
+                                                <ng-container
+                                                    *ngIf="updateLoanForm.controls['otherEmi'].dirty && updateLoanForm.hasError('pattern','otherEmi')">
+                                                    <small class="error">Please enter proper credentials</small>
+                                                </ng-container>
+
+                                            </div>
+                                            <br>
+                                            <ng-container *ngIf="this.type == 'houseLoan'">
+                                                <div class="mb-2">
+                                                    <label for="propertyLoc" class="form-label">Property Address
+                                                        :</label>
+                                                    <input type="text" class="form-control"
+                                                        id="exampleFormControlInput1"
+                                                        placeholder="Enter your Property Location" class="input-field"
+                                                        formControlName="propertyLoc">
+                                                    <small
+                                                        *ngIf="updateLoanForm.get('propertyLoc')?.invalid && updateLoanForm.get('propertyLoc')?.touched"
+                                                        class="error">
+                                                        PropertyLocation is required.
+                                                    </small>
+                                                </div>
+                                                <br>
+
+                                            </ng-container>
+                                            <ng-container *ngIf="this.type == 'vehicleLoan'">
+                                                <div class="mb-2">
+                                                    <label for="vendorName" class="form-label">Vendor Name :</label>
+                                                    <input type="text" class="form-control"
+                                                        id="exampleFormControlInput1"
+                                                        placeholder="Enter name of the vendor" class="input-field"
+                                                        formControlName="vendorName">
+                                                    <small
+                                                        *ngIf="updateLoanForm.get('vendorName')?.invalid && updateLoanForm.get('vendorName')?.touched"
+                                                        class="error">
+                                                        Vendor Name is required.
+                                                    </small>
+                                                    <ng-container
+                                                        *ngIf="updateLoanForm.controls['vendorName'].dirty && updateLoanForm.hasError('pattern','vendorName')">
+                                                        <small class="error">*Enter proper credentials</small>
+                                                    </ng-container>
+                                                </div>
+                                                <br>
+                                                <div class="mb-2">
+                                                    <label for="vendorAddress" class="form-label">Vendor Address
+                                                        :</label>
+                                                    <input type="text" class="form-control"
+                                                        id="exampleFormControlInput1"
+                                                        placeholder="Enter address of the vendor" class="input-field"
+                                                        formControlName="vendorAddress">
+                                                    <small
+                                                        *ngIf="updateLoanForm.get('vendorAddress')?.invalid && updateLoanForm.get('vendorAddress')?.touched"
+                                                        class="error">
+                                                        Vendor Address is required.
+                                                    </small>
+                                                </div>
+                                                <br>
+
+                                            </ng-container>
+                                            <ng-container *ngIf="this.type == 'educationLoan'">
+                                                <div class="mb-2">
+                                                    <label for="courseName" class="form-label">Course Name :</label>
+                                                    <input type="text" class="form-control"
+                                                        id="exampleFormControlInput1"
+                                                        placeholder="Enter name of the course" class="input-field"
+                                                        formControlName="courseName">
+                                                    <small
+                                                        *ngIf="updateLoanForm.get('courseName')?.invalid && updateLoanForm.get('courseName')?.touched"
+                                                        class="error">
+                                                        Course Name is required.
+                                                    </small>
+                                                    <ng-container
+                                                        *ngIf="updateLoanForm.controls['courseName'].dirty && updateLoanForm.hasError('pattern','courseName')">
+                                                        <small class="error">*Enter proper credentials</small>
+                                                    </ng-container>
+                                                </div>
+                                                <br>
+                                                <div class="mb-2">
+                                                    <label for="instituteName" class="form-label">Institute Name &
+                                                        Address :</label>
+                                                    <input type="text" class="form-control"
+                                                        id="exampleFormControlInput1"
+                                                        placeholder="Enter address and name of the Institute"
+                                                        class="input-field" formControlName="instituteName">
+                                                    <small
+                                                        *ngIf="updateLoanForm.get('instituteName')?.invalid && updateLoanForm.get('instituteName')?.touched"
+                                                        class="error">
+                                                        Institute details are required.
+                                                    </small>
+                                                </div>
+                                                <br>
+
+                                            </ng-container>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="d-flex justify-content-evenly">
+                                        <button class="btn btn-primary w-25" type="submit"
+                                            (click)="onSubmit()">Update</button>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-12"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tab-pane fade" id="search" role="tabpanel" aria-labelledby="search-tab" tabindex="0">
+            <div class="container-fluid">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mb-2">
+
+                            <div class="document_container">
+                                <h5 class="card-title">Uploaded Documents</h5>
+                                <ng-container *ngIf="this.type == 'houseLoan'">
+                                    <ul class="card-title">
+                                        <li>Bank statement of 3 previous months</li>
+                                        <li>Property Documents</li>
+                                    </ul>
+                                </ng-container>
+                                <ng-container *ngIf="this.type == 'personalLoan'">
+                                    <ul class="card-title">
+                                        <li>Recent Salary slip</li>
+                                        <li>Income certificate</li>
+                                    </ul>
+                                </ng-container>
+                                <ng-container *ngIf="this.type == 'vehicleLoan'">
+                                    <ul class="card-title">
+                                        <li>Bank statement of 3 previous months</li>
+                                        <li>Vehicle Documents</li>
+                                        <li>Down payment proof</li>
+                                    </ul>
+                                </ng-container>
+                                <ng-container *ngIf="this.type == 'educationLoan'">
+                                    <ul class="card-title">
+                                        <li>Income certificate</li>
+                                        <li>Admission letter</li>
+                                        <li>Academic Records</li>
+                                        <li>Course details and Cost of Education</li>
+                                    </ul>
+                                </ng-container>
+                            </div>
+                            <div>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>SI.No</th>
+                                            <th>Document</th>
+                                            <th>Preview </th>
+                                            <th>Actions</th>
+
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let file of fName let i = index">
+                                            <ng-container *ngIf="file != ''">
+                                                <td>{{i+1}}</td>
+                                                <td> <a href={{fpath[i]}} target="_blank">{{ file }}</a></td>
+                                                <td><img src={{fpath[i]}} alt="" width="60px"></td>
+                                                <td><span class="fa fa-trash" (click)="deleteFile(file)"></span></td>
+                                            </ng-container>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <input class="form-control" multiple type="file" (change)="onFileSelected($event)" />
+                            <button class="btn btn-primary w-25 d-block m-auto mt-3" (click)="onFileUpload()">Upload</button>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+
+
+</div>

@@ -1,0 +1,86 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><span class="text-primary">ALPHA</span>BANK</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="">Home</a>
+          </li>
+
+          <!--If its user login then these fields are displayed in navbar-->
+    <ng-container *ngIf="role =='user'">
+      <li class="nav-item">
+        <a class="nav-link" href="#services">Services</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="routetoLoanType()">Loans</a>
+      </li>
+      <li class="nav-item user_profile_info">
+      
+        <p>User ID  : <span class="text-primary">{{fullName}}</span></p>
+          
+         
+        </li>
+        <li class="nav-item user_profile_info">
+        
+          <p >Acc Num :<span class="text-primary">{{accountnumber}}</span></p>
+           
+          </li>
+      <li class="nav-item user_profile_info">
+     
+          <button  class="btn btn-primary" (click)="signOut()">Logout</button>
+         
+        </li> 
+    </ng-container>
+    <!---If its admin login then this fields are displayed -->
+    <ng-container *ngIf="role ==='admin'">
+        <li class="nav-item">
+            <a  class="nav-link" (click)="routetoallLoans()">Loan Requests<span class="badge">{{this.count}}</span></a>
+          </li>
+      </ng-container>
+
+      <!--- Code related to user profile --->
+    <li class="nav-item user_profile_container">
+        <div class="user-profile"  (click)="toggleSubMenu()">
+          <div class="profile-symbol">{{initials}}</div>
+          <div class="profile-name"><a href="">{{username}}</a></div>
+          <div class="sub-menu-wrap"[class.open-menu]="isSubMenuOpen">
+            <div class="sub-menu">
+              <div class="user-info ">
+                <h6 class="profile_heading">Welcome  {{cust_name}}</h6>
+              </div>
+    
+               <a href="#" class="sub-menu-link">
+                <p>User ID  : <span class="text-primary">{{fullName}}</span></p>
+               
+               </a>
+               <ng-container *ngIf="role !='admin'">
+                <a href="#" class="sub-menu-link">
+                  <p >Acc Num :<span class="text-primary">{{accountnumber}}</span></p>
+                 
+                 </a>
+               </ng-container>
+             
+    
+               <a href="#" class="sub-menu-link">
+                <button  class="btn btn-primary d-block m-auto" (click)="signOut()">Logout</button>
+               </a>
+    
+            </div>
+          </div>
+        </div>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  
+  
+  
+  
+  
+  
+  

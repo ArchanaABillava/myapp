@@ -1,0 +1,291 @@
+<!--Reusing navbar component--->
+<app-navbar></app-navbar>
+
+<div class="container-fluid">
+    
+    <h1 class="text-center text-primary loan_header">Download your Loan Application</h1>
+   <p class="text-center caption">Verify the Loan details in the application form and For any queries please contact our Customer support Number.</p>
+    <div class="form-container" #htmlData>
+        <div class="header">
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-0"></div>
+                <div class="col-lg-8 col-md-8 col-12">
+                    <div class="row">
+                    <div class="col-lg-9 col-md-9 col-sm-8 col-8">
+                        <h4 class="header-title">ALPHA BANK</h4>
+                    <p class="font">HSR layout,2nd Street ,Bangalore,5762001</p>
+                    <p class="font">Contact Number : 9876543210,9123456780  </p>
+                    <p class="font">Email ID : alpha123@gmail.com</p>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-sm-4 col-4">
+                        <P class="header-sub-title">Branch Details </P>
+                        <p class="font">Main Branch: HSR layout,Bangalore,5762001</p>
+                        <p class="font">sub-Branch : Nagasandra,Bangalore,576221</p>
+                    </div>
+                </div>
+            </div>
+                <div class="col-lg-2 col-md-2 col-0">
+                    <div class="floating-button ">
+                        <button class="btn btn-primary" (click)="downloadPdf()">
+                            <i class="fa fa-download" aria-hidden="true"></i>
+                        </button>
+                      </div>
+                </div>
+            </div>
+        </div>
+        <h2 class="form-title" >Loan Application Form</h2>
+        <div class="row">
+        <div class="col-lg-2 col-md-2 col-0"></div>
+        <div class="col-lg-9 col-md-8 col-12">
+            <div class="grid-container" >
+                <div><div   class="main-container">
+                    <!---Displaying few Basic details of User--->
+                    <p class="title1">Username </p>
+                    <div class="sub-container"><p class="content1">{{this.users["userName"]}}</p></div>
+                </div>
+                <div class="main-container" >
+                    <p class="title">Account Number</p>
+                    <div class="sub-container"><p class="content">{{this.users["accountNum"]}}</p></div>
+                </div>
+                
+                <div class="main-container" >
+                    <p class="title" >Email</p>
+                    <div class="sub-container"><p class="content">{{this.users["email"]}}</p></div>
+                </div>
+                <div class="main-container" >
+                    <p class="title">Contact Number</p>
+                    <div class="sub-container"><p class="content">{{this.users["contactNum"]}}</p></div>
+                </div>
+                
+                <div class="main-container" >
+                    <p class="title" >Aadhar Number</p>
+                    <div class="sub-container"><p class="content"> {{this.users["aadharNum"]}}</p></div>
+                </div>
+                <div class="main-container" >
+                    <p class="title">PAN Number</p>
+                    <div class="sub-container"><p class="content">{{this.users["panNum"]}}</p></div>
+                </div>
+                <div class="main-container" >
+                    <p class="title">Gender</p>
+                    <div class="sub-container"><p class="content">{{this.users["gender"]}} </p></div>
+                </div>
+                </div>
+                <div>
+                <div class="main-container" >
+                    <p class="title">Employee Type</p>
+                    <div class="sub-container"><p class="content">{{this.emptype}}</p></div>
+                </div>
+                <!--If employee type is self Employee then these fields are displayed---->
+                <ng-container *ngIf="this.emptype == 'Self Employed'" >
+                        <div class="main-container" >
+                            <p class="title" >Occupation Name</p>
+                            <div class="sub-container"><p class="content">{{this.users["occupationName"]}} </p></div>
+                        </div>
+                        <div class="main-container" >
+                            <p class="title">Occupation Address</p>
+                            <div class="sub-container"><p class="content">{{this.users["occupationAddress"]}}</p></div>
+                        </div>
+
+                    <!--If employee type is Salaried then these fields are displayed---->    
+                    </ng-container>
+                    <ng-container *ngIf="this.emptype == 'salaried'" >
+                        <div class="main-container" >
+                            <p class="title" >Organization Name</p>
+                            <div class="sub-container"><p class="content">{{this.users["organizationName"]}} </p></div>
+                        </div>
+                        <div class="main-container" >
+                            <p class="title" >Organization Address</p>
+                            <div class="sub-container"><p class="content">{{this.users["organizationAddress"]}}</p></div>
+                        </div>
+                    </ng-container>
+                    <div class="main-container" >
+                        <p class="title" >Date of Birth</p>
+                        <div class="sub-container"><p class="content">{{this.users["dob"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title" >Address</p>
+                        <div class="sub-container"><p class="content">{{this.users["addresss"]}}</p></div>
+                    </div>
+                
+                    <div class="main-container" >
+                        <p class="title">Work Experience</p>
+                        <div class="sub-container"><p class="content">{{this.users["workExp"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">Monthly Income</p>
+                        <div class="sub-container"><p class="content">Rs.{{this.loans["monthlyIncome"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">Annual Income</p>
+                        <div class="sub-container"><p class="content">Rs.{{this.loans["annualIncome"]}}</p></div>
+                    </div> 
+                </div>
+                </div>
+
+                
+                <ng-container *ngIf="this.type == 'houseLoan'" >
+                    <h3 class="text-center loan_heading">Home Loan Details</h3>
+                </ng-container>
+                <ng-container *ngIf="this.type == 'personalLoan'" >
+                    <h3 class="text-center loan_heading">Personal Loan Details</h3>
+                </ng-container>
+                <ng-container *ngIf="this.type == 'vehicleLoan'" >
+                    <h3 class="text-center loan_heading">Vehicle Loan Details</h3>
+                </ng-container>
+                <ng-container *ngIf="this.type == 'educationLoan'" >
+                    <h3 class="text-center loan_heading">Education Loan Details</h3>
+                </ng-container>
+                <div class="grid-container" >
+                <div class="mt-2">
+                <div class="main-container">
+                    <p class="title" >Loan Amount</p>
+                    <div class="sub-container"><p class="content">Rs.{{this.loans["loanAmount"]}}</p></div>
+                </div>
+                <div class="main-container" >
+                    <p class="title" >Interest</p>
+                    <div class="sub-container"><p class="content">{{this.loans["interest"]}}%</p></div>
+                </div>
+                <div class="main-container" >
+                    <p class="title">Tenure(in years)</p>
+                    <div class="sub-container"><p class="content">{{this.loans["tenure"]}}</p></div>
+                </div>
+                <div class="main-container" >
+                    <p class="title">Loan EMI</p>
+                    <div class="sub-container"><p class="content">Rs.{{this.loans["loanEmi"]}}</p></div>
+                </div>
+                <div class="main-container" >
+                    <p class="title">Total Loan Amount</p>
+                    <div class="sub-container"><p class="content">Rs.{{this.loans["loanTotalAmount"]}}</p></div>
+                </div>
+                </div>
+
+                <!----If  Loan type is House Loan then following  fields are displayed---->
+                <ng-container *ngIf="this.type == 'houseLoan'" >
+                <div >
+                    <div class="main-container" >
+                        <p class="title1" >Loan Purpose </p>
+                        <div class="sub-container"><p class="content1">{{this.loans["loanPurpose"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">Property Value</p>
+                        <div class="sub-container"><p class="content">Rs.{{this.loans["propertyValue"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">Property Area</p>
+                        <div class="sub-container"><p class="content">{{this.loans["propertyArea"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title" >Property Address</p>
+                        <div  class="sub-container"><p class="content">{{this.loans["propertyLoc"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">Loan Start Date</p>
+                        <div class="sub-container"><p class="content">{{this.loans["loanStartDate"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">Loan End Date</p>
+                        <div class="sub-container"><p class="content">{{this.loans["loanEndDate"]}}</p></div>
+                    </div>
+                  </div>
+                </ng-container>
+
+                  <!----If  Loan type is Vehicle Loan then following  fields are displayed---->
+                  <ng-container *ngIf="this.type == 'vehicleLoan'" >
+                    <div>
+                    <div class="main-container" >
+                        <p class="title1" >Loan Purpose </p>
+                        <div class="sub-container"><p class="content1">{{this.loans["loanPurpose"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">RC Number</p>
+                        <div class="sub-container"><p class="content">{{this.loans["vehicleRCNumber"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">Vehicle Price</p>
+                        <div class="sub-container"><p class="content">{{this.loans["vehiclePrice"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title" >Vendor Name</p>
+                        <div  class="sub-container"><p class="content">{{this.loans["vendorName"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title" >Vendor Address</p>
+                        <div  class="sub-container"><p class="content">{{this.loans["vendorAddress"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">Loan Start Date</p>
+                        <div class="sub-container"><p class="content">{{this.loans["loanStartDate"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">Loan End Date</p>
+                        <div class="sub-container"><p class="content">{{this.loans["loanEndDate"]}}</p></div>
+                    </div>
+                  </div>
+                </ng-container>
+
+                  <!----If  Loan type is Personal Loan then following  fields are displayed---->
+                  <ng-container *ngIf="this.type == 'personalLoan'" >
+                    <div>
+                    <div class="main-container" >
+                        <p class="title1" >Loan Purpose </p>
+                        <div class="sub-container"><p class="content1">{{this.loans["loanPurpose"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">Ongoing Loan(Yes/No)</p>
+                        <div class="sub-container"><p class="content">{{this.loans["ongoingLoan"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">Loan Start Date</p>
+                        <div class="sub-container"><p class="content">{{this.loans["loanStartDate"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">Loan End Date</p>
+                        <div class="sub-container"><p class="content">{{this.loans["loanEndDate"]}}</p></div>
+                    </div>
+                  </div>
+                </ng-container>
+
+                  <!----If  Loan type is Education Loan then following  fields are displayed---->
+                  <ng-container *ngIf="this.type == 'educationLoan'" >
+                    <div>
+                    <div class="main-container" >
+                        <p class="title1" >Education Type </p>
+                        <div class="sub-container"><p class="content1">{{this.loans["educationType"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">Course Name</p>
+                        <div class="sub-container"><p class="content">{{this.loans["courseName"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">Course Duration</p>
+                        <div class="sub-container"><p class="content">{{this.loans["courseDuration"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">Institute Name</p>
+                        <div class="sub-container"><p class="content">{{this.loans["instituteName"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title" >Total Fee</p>
+                        <div  class="sub-container"><p class="content">{{this.loans["totalFee"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">Loan Start Date</p>
+                        <div class="sub-container"><p class="content">{{this.loans["loanStartDate"]}}</p></div>
+                    </div>
+                    <div class="main-container" >
+                        <p class="title">Loan End Date</p>
+                        <div class="sub-container"><p class="content">{{this.loans["loanEndDate"]}}</p></div>
+                    </div>
+                  </div>
+                </ng-container>   
+                </div>  
+        </div>
+        <div class="col-lg-1 col-md-2 col-0"></div>
+        </div>
+        <div class="privacy text-center"><p style="padding-top: 10px;">Privacy Policy:The Bank recognizes the expectations of its customers with regard to privacy, confidentiality and security of their personal information that resides with the Bank. Keeping personal information of customers secure and using it solely for activities related to the Bank and preventing any misuse thereof is a top priority of the Bank. The Bank has adopted the privacy policy aimed at protecting the personal information entrusted and disclosed by the customers. </p> <P style="margin-left: 10px;font-size: larger;text-align: center;">©ALPHABANK_2023-2024 </P></div>   
+        </div>
+        <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+</div>
+
+
+

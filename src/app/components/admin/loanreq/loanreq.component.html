@@ -1,0 +1,320 @@
+<app-navbar></app-navbar>
+
+<div class="container-fluid">
+  <div class="navtab">
+      <nav class="mb-3">
+          <div class="nav nav-tabs" id="nav-tab" role="tablist">
+              <button class="nav-link active" id="loan-request-tab" data-bs-toggle="tab"
+                  data-bs-target="#loan-request" type="button" role="tab" aria-controls="loan-request"
+                  aria-selected="true">Personal Information</button>
+              <button class="nav-link" id="loan-details-tab" data-bs-toggle="tab" data-bs-target="#loan-details"
+                  type="button" role="tab" aria-controls="loan-details" aria-selected="false">Loan Details</button>
+              <button class="nav-link" id="search-tab" data-bs-toggle="tab" data-bs-target="#search" type="button"
+                  role="tab" aria-controls="search" aria-selected="false">Documents</button>
+              <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
+                  type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
+                  Loan-Status</button>
+          </div>
+      </nav>
+  </div>
+
+
+  <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="loan-request" role="tabpanel" aria-labelledby="loan-request-tab"
+          tabindex="0">
+          <div class="container card p-4">
+              <div class="row">
+                  <div class="col-lg-6 col-md-12 col-12">
+                      <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label fw-bold">Name</label>
+                          <input type="email" class="form-control" id="exampleFormControlInput1"
+                              value="{{ loanDetailsObj.customerAccountInfo.userName }}" disabled>
+                      </div>
+                      <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label fw-bold">Account Number </label>
+                          <input type="email" class="form-control" id="exampleFormControlInput1"
+                              value="{{loanDetailsObj.customerAccountInfo.accountNum}}" disabled>
+                      </div>
+                      <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label fw-bold">Aadhar Number </label>
+                          <input type="email" class="form-control" id="exampleFormControlInput1"
+                              value="{{loanDetailsObj.customerAccountInfo.aadharNum}}" disabled>
+                      </div>
+                      <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label fw-bold">Gender</label>
+                          <input type="email" class="form-control" id="exampleFormControlInput1"
+                              value="{{ loanDetailsObj.customerAccountInfo.gender }}" disabled>
+                      </div>
+                      <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label fw-bold">Address</label>
+                          <input type="email" class="form-control" id="exampleFormControlInput1"
+                              value="{{ loanDetailsObj.customerAccountInfo.addresss }}" disabled>
+                      </div>
+                      <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label fw-bold">Mobile Number</label>
+                          <input type="email" class="form-control" id="exampleFormControlInput1"
+                              value="{{ loanDetailsObj.customerAccountInfo.contactNum }}" disabled>
+                      </div>
+                  </div>
+                  <div class="col-lg-6 col-md-12 col-12">
+                      <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label fw-bold">Email ID</label>
+                          <input type="email" class="form-control" id="exampleFormControlInput1"
+                              value="{{ loanDetailsObj.customerAccountInfo.email }}" disabled>
+                      </div>
+                      <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label fw-bold">PAN Number</label>
+                          <input type="email" class="form-control" id="exampleFormControlInput1"
+                              value="{{ loanDetailsObj.customerAccountInfo.panNum }}" disabled>
+                      </div>
+                      <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label fw-bold">Employee Type</label>
+                          <input type="email" class="form-control" id="exampleFormControlInput1"
+                              value="{{ loanDetailsObj.customerAccountInfo.empType }}" disabled>
+                      </div>
+                      <div class="mb-3">
+                          <label for="exampleFormControlInput1" class="form-label fw-bold">Annual Income </label>
+                          <input type="email" class="form-control" id="exampleFormControlInput1"
+                              value="{{ loanDetailsObj.loanDetails.annualIncome }}" disabled>
+                      </div>
+                      <ng-container *ngIf="loanDetailsObj.customerAccountInfo.empType ==='salaried'">
+                          <div class="mb-3">
+                              <label for="exampleFormControlInput1" class="form-label fw-bold">Organization Name</label>
+                              <input type="email" class="form-control" id="exampleFormControlInput1"
+                                  value="{{ loanDetailsObj.customerAccountInfo.organizationName }}" disabled>
+                          </div>
+                          <div class="mb-3">
+                              <label for="exampleFormControlInput1" class="form-label fw-bold">Organization Address</label>
+                              <input type="email" class="form-control" id="exampleFormControlInput1"
+                                  value="{{ loanDetailsObj.customerAccountInfo.organizationAddress }}" disabled>
+                          </div>
+                      </ng-container>
+                      <ng-container *ngIf="loanDetailsObj.customerAccountInfo.empType =='Self Employed'">
+                          <div class="mb-3">
+                              <label for="exampleFormControlInput1" class="form-label fw-bold">Occupation Name</label>
+                              <input type="email" class="form-control" id="exampleFormControlInput1"
+                                  value="{{ loanDetailsObj.customerAccountInfo.occupationName }}" disabled>
+                          </div>
+                          <div class="mb-3">
+                              <label for="exampleFormControlInput1" class="form-label fw-bold">Occupation Address</label>
+                              <input type="email" class="form-control" id="exampleFormControlInput1"
+                                  value="{{ loanDetailsObj.customerAccountInfo.occupationAddress }}" disabled>
+                          </div>
+                      </ng-container>
+                  </div>
+              </div>
+          </div>
+
+
+
+      </div>
+
+      <div class="tab-pane fade" id="loan-details" role="tabpanel" aria-labelledby="loan-details-tab" tabindex="0">
+        <div class="container card p-4">
+              <div class="row">
+                <h4 class="text-primary text-center text-capitalize">{{loanDetailsObj.loanDetails.loanType}} Details</h4>
+                  <div class="col-lg-6 col-md-6 col-12">
+                    <div class="mb-3">
+                      <label class="form-label fw-bold">Loan Amount</label>
+                      <input type="text" class="form-control" value="&#x20B9;{{loanDetailsObj.loanDetails.loanAmount}}" disabled>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label fw-bold">Interest</label>
+                      <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.interest}}%" disabled>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label fw-bold">Tenure (in months)</label>
+                      <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.tenure}}" disabled>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label fw-bold">Other EMI</label>
+                      <input type="text" class="form-control" value="&#x20B9;{{loanDetailsObj.loanDetails.otherEmi}}" disabled>
+                    </div>
+                    <div class="mb-3">
+                      <label class="form-label fw-bold">Loan EMI</label>
+                      <input type="text" class="form-control" value="&#x20B9;{{loanDetailsObj.loanDetails.loanEmi}}" disabled>
+                    </div>
+                  </div>
+                  <div class="col-lg-6 col-md-6 col-12">
+                    
+                
+                    <div *ngIf="loanDetailsObj.loanDetails.loanType=='houseLoan'" class="mb-3">
+                      <label class="form-label fw-bold">Loan Purpose</label>
+                      <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.loanPurpose}}" disabled>
+                    </div>
+                    <div *ngIf="loanDetailsObj.loanDetails.loanType=='houseLoan'" class="mb-3">
+                      <label class="form-label fw-bold">Property Area</label>
+                      <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.propertyArea}}" disabled>
+                    </div>
+                    <div *ngIf="loanDetailsObj.loanDetails.loanType=='houseLoan'" class="mb-3">
+                      <label class="form-label fw-bold">Property Location</label>
+                      <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.propertyLoc}}" disabled>
+                    </div>
+                    <div *ngIf="loanDetailsObj.loanDetails.loanType=='houseLoan'" class="mb-3">
+                      <label class="form-label fw-bold">Property Value</label>
+                      <input type="text" class="form-control" value="&#x20B9;{{loanDetailsObj.loanDetails.propertyValue}}" disabled>
+                    </div>
+                
+                    <div *ngIf="loanDetailsObj.loanDetails.loanType=='vehicleLoan'" class="mb-3">
+                      <label class="form-label fw-bold">Loan Purpose</label>
+                      <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.loanPurpose}}" disabled>
+                    </div>
+                    <div *ngIf="loanDetailsObj.loanDetails.loanType=='vehicleLoan'" class="mb-3">
+                      <label class="form-label fw-bold">RC Number</label>
+                      <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.vehicleRCNumber}}" disabled>
+                    </div>
+                    <div *ngIf="loanDetailsObj.loanDetails.loanType=='vehicleLoan'" class="mb-3">
+                      <label class="form-label fw-bold">Vehicle Price</label>
+                      <input type="text" class="form-control" value="&#x20B9;{{loanDetailsObj.loanDetails.vehiclePrice}}" disabled>
+                    </div>
+                    <div *ngIf="loanDetailsObj.loanDetails.loanType=='vehicleLoan'" class="mb-3">
+                      <label class="form-label fw-bold">Vendor Address</label>
+                      <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.vendorAddress}}" disabled>
+                    </div>
+                    <div *ngIf="loanDetailsObj.loanDetails.loanType=='vehicleLoan'" class="mb-3">
+                      <label class="form-label fw-bold">Vendor Name</label>
+                      <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.vendorName}}" disabled>
+                    </div>
+                
+                    <div *ngIf="loanDetailsObj.loanDetails.loanType=='personalLoan'" class="mb-3">
+                      <label class="form-label fw-bold">Loan Purpose</label>
+                      <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.loanPurpose}}" disabled>
+                    </div>
+                    <div *ngIf="loanDetailsObj.loanDetails.loanType=='personalLoan'" class="mb-3">
+                      <label class="form-label fw-bold">Ongoing Loan</label>
+                      <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.ongoingLoan}}" disabled>
+                    </div>
+                
+                    <div *ngIf="loanDetailsObj.loanDetails.loanType=='educationLoan'" class="mb-3">
+                      <label class="form-label fw-bold">Education Type</label>
+                      <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.educationType}}" disabled>
+                    </div>
+                    <div *ngIf="loanDetailsObj.loanDetails.loanType=='educationLoan'" class="mb-3">
+                      <label class="form-label fw-bold">Course Name</label>
+                      <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.courseName}}" disabled>
+                    </div>
+                    <div *ngIf="loanDetailsObj.loanDetails.loanType=='educationLoan'" class="mb-3">
+                      <label class="form-label fw-bold">Course Duration</label>
+                      <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.courseDuration}}" disabled>
+                    </div>
+                    <div *ngIf="loanDetailsObj.loanDetails.loanType=='educationLoan'" class="mb-3">
+                      <label class="form-label fw-bold">Institute Name</label>
+                      <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.instituteName}}" disabled>
+                    </div>
+                    <div *ngIf="loanDetailsObj.loanDetails.loanType=='educationLoan'" class="mb-3">
+                      <label class="form-label fw-bold">Total Fee</label>
+                      <input type="text" class="form-control" value="&#x20B9;{{loanDetailsObj.loanDetails.totalFee}}" disabled>
+                    </div>
+                      
+                  </div>
+                 
+              </div>
+          </div>
+      </div>
+
+      <div class="tab-pane fade" id="search" role="tabpanel" aria-labelledby="search-tab" tabindex="0">
+          <div class="container-fluid">
+              <div class="card">
+                  <div class="card-body">
+                      <div class="mb-2">
+
+                          <div class="document_container">
+                              <h5 class="card-title">Uploaded Documents</h5>
+                              <ng-container *ngIf="this.type == 'houseLoan'">
+                                  <ul class="card-title">
+                                      <li>Bank statement of 3 previous months</li>
+                                      <li>Property Documents</li>
+                                  </ul>
+                              </ng-container>
+                              <ng-container *ngIf="this.type == 'personalLoan'">
+                                  <ul class="card-title">
+                                      <li>Recent Salary slip</li>
+                                      <li>Income certificate</li>
+                                  </ul>
+                              </ng-container>
+                              <ng-container *ngIf="this.type == 'vehicleLoan'">
+                                  <ul class="card-title">
+                                      <li>Bank statement of 3 previous months</li>
+                                      <li>Vehicle Documents</li>
+                                      <li>Down payment proof</li>
+                                  </ul>
+                              </ng-container>
+                              <ng-container *ngIf="this.type == 'educationLoan'">
+                                  <ul class="card-title">
+                                      <li>Income certificate</li>
+                                      <li>Admission letter</li>
+                                      <li>Academic Records</li>
+                                      <li>Course details and Cost of Education</li>
+                                  </ul>
+                              </ng-container>
+                          </div>
+                          <div>
+                              <table class="table">
+                                  <thead>
+                                      <tr>
+                                          <th>SI.No</th>
+                                          <th>Document</th>
+                                          <th>Preview </th>
+                                          
+
+
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let file of fName let i = index">
+                                          <ng-container *ngIf="file != ''">
+                                              <td>{{i+1}}</td>
+                                              <td> <a href={{fpath[i]}} target="_blank">{{ file }}</a></td>
+                                              <td><img src={{fpath[i]}} alt="" width="60px"></td>
+                                            
+                                          </ng-container>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
+
+
+
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab" tabindex="0">
+         
+        <div class="container card p-4">
+          <div class="row">
+            <div class="col-lg-1 col-md-1 col-12"></div>
+            <div class="col-lg-10 col-md-12 col-12">
+              <div class="details_container">
+                <div class="mb-3">
+                  <label class="form-label fw-bold">Loan Status</label>
+                  <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.loanStatus}}" disabled>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label fw-bold">Updated-on</label>
+                  <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.modified_At}}" disabled>
+                </div>
+              </div>
+              <div class="form-group" [formGroup]="commentForm">
+                <div class="mb-3">
+                  <label for="comment" class="form-label fw-bold">Provide your feedback</label>
+                  <textarea class="form-control" id="comment" name="comment" formControlName="comment" rows="4"
+                    placeholder="Enter your comment" required></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-1 col-md-1 col-12"></div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-outline-success w-25" (click)="updateLoanStatus('Approved')">Accept</button>
+            <button type="button" class="btn btn-outline-primary w-25" (click)="updateLoanStatus('Need More Info')">Need more info</button>
+            <button type="button" class="btn btn-outline-danger w-25" (click)="updateLoanStatus('Rejected')">Reject</button>
+          </div>
+</div>
+      </div>
+
+  </div>
+
+
+</div>

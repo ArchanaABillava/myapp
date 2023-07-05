@@ -1,0 +1,114 @@
+.input-field{
+  /* border-radius: 5px; */
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  /* border: 1px solid rgb(0, 0, 0); */
+  border-bottom: 1px solid black;
+  /* text-decoration: underline; */
+ 
+}
+
+.upload_label{
+  font-size: 18px;
+  font-weight: 700;
+}
+.document_container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container{
+  width: 75%;
+}
+
+/* .details_container{
+  display: grid;
+    place-content: center;
+} */
+
+.text-dec{
+  font-size: 16px;
+  color:rgb(0, 0, 0);
+  font-family: sans-serif;
+  text-transform: capitalize;
+}
+h4,h2{
+  font-weight: bolder;
+  margin-bottom: 20px;
+  color:rgb(0, 0, 74);
+}
+
+
+input,label,select{
+  font-size: 14px;
+  font-weight: 500;
+}
+
+option{
+  font-size: 13px;
+}
+small{
+  font-size: 13px;
+}
+
+.interest_div
+{
+  border: 1px solid;
+  text-align: center;
+  font-size: 18px;
+  width: 40%;
+  background: rgba(170, 170, 170,0.1);
+
+}
+
+::placeholder{
+  font-size: 14px;
+}
+
+.error{
+  color: red;
+  font-family: monospace;
+}
+
+input{
+  border: none;
+  outline: none;
+  text-decoration: none;
+  width: 100%;
+  text-transform: capitalize;
+}
+
+.card-title{
+ color:#0275d8;
+ font-family: inherit;
+}
+
+.nav-tabs .nav-link.active {
+  color: #ffffff;
+  background-color: #4f5bf2;
+  border-color: #4f5bf2;
+}
+
+.divide{
+  /* border-right: 1px solid grey; */
+  border-left: 1px solid grey;
+}
+
+nav{
+  border-bottom: 1px solid grey;
+}
+
+
+
+.navtab{
+  margin-top: 70px;
+  /* display: block; */
+  /* margin: auto; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

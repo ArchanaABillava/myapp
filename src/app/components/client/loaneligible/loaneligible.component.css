@@ -1,0 +1,83 @@
+.input-field{
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid black; 
+}
+.rule_heading{
+    text-align: start;
+    font-size: 22px;
+    margin-top: 20px;
+    margin-left: 23px;
+    color: blue;
+    font-weight: bold;
+}
+
+.result_container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font:caption
+}
+
+.rule_container{
+    justify-content:space-around ;
+}
+
+.container-fluid{
+    margin-top:60px;
+    background-color: aliceblue;
+    height: 100vh;
+}
+
+input,label,select{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+option{
+    font-size: 13px;
+}
+small{
+    font-size: 13px;
+}
+
+.interest_div
+{
+    border: 1px solid;
+    text-align: center;
+    font-size: 18px;
+    width: 40%;
+    background: rgba(170, 170, 170,0.1);
+
+}
+
+::placeholder{
+    font-size: 14px;
+}
+
+.error{
+    color: red;
+}
+
+input{
+    border: none;
+    outline: none;
+    text-decoration: none;
+    width: 100%;
+}
+
+.card-title{
+   color:#0275d8;
+   font-family: inherit;
+}
+
+@media only screen and (max-height: 767px) {
+
+	.container-fluid{
+        height: screen;
+    }
+}
+

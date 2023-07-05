@@ -1,0 +1,56 @@
+.input-field{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid black;
+    color: blue;
+}
+
+input,label{
+    font-size: 14px;
+    font-weight: 500;
+}
+
+small{
+    font-size: 13px;
+}
+
+::placeholder{
+    font-size: 14px;
+}
+
+.input-field.error{
+    border-bottom: 1px solid rgb(255, 0, 0);
+    color: red;
+}
+
+.nextpage{
+    font: caption;
+}
+
+.fa-eye-slash.btn{
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+input{
+    border: none;
+    outline: none;
+    text-decoration: none;
+    width: 100%;
+}
+
+.container-fluid{
+    background:url("https://images.pexels.com/photos/3605420/pexels-photo-3605420.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-position: contain;
+    background-size: cover;
+    height: 100vh; 
+}
+
+
+
+.login-container{
+    margin-top: 5rem; 
+}

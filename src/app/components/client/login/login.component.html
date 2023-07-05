@@ -1,0 +1,142 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-md-2 col-0 background">    
+        </div>
+        <div class="col-lg-4 col-md-8 col-12">
+                <div class="login-container">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title fw-bold text-decoration-underline text-center">Log-In</h3>
+                     <div class="panel-body p-3">
+                        <form [formGroup]="loginForm">
+                            <div class="form-group pt-3">
+                                <!---fields to enter  User Id and Password--->
+                                <label for="customerid">User Id :</label>
+                                <div class="input-field" [class.error]="loginForm.controls['customerid'].dirty && loginForm.hasError('required','customerid')">
+                                    <span class="fa fa-user-circle pe-2"></span>
+                                    <input formControlName="customerid" type="text" placeholder="Please enter your User Id">
+                                </div>
+                            </div>
+                            <small *ngIf="loginForm.controls['customerid'].dirty && loginForm.hasError('required','customerid')" class="text-danger">*User Id is required</small>
+                            <div class="form-group pt-3">
+                                <label for="password">Password :</label>
+                                <div class="input-field" [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">
+                                    <span class="fa fa-key pe-2"></span>
+                                    <input formControlName="password" [type]="type" placeholder="Please enter your password">    
+                                    <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                                </div>
+                            </div> 
+                            <small  *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')"  class="text-danger">*Password is required</small>
+                            <button (click)="onSubmit()" type="submit" class="btn btn-primary mt-4 w-100 d-block m-auto">Login</button>
+                            <div class="text-center pt-4 text-muted">
+                                 <span class="nextpage">Don't have an account <a id="forget" routerLink="/signup">&nbsp;Signup</a></span>
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-lg-4 col-md-2 col-0">
+
+            </div>
+        </div>
+        
+    </div>
+
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="container">
+    <div class="row">
+       <div class="card">
+        <div class="card-title">
+            <h1>Login</h1>
+        </div>
+        <div class="card-body">
+            <div class="col-lg-6">
+                <div class="panel-body p-3">
+                    <form [formGroup]="loginForm">
+                        <div class="form-group pt-3">
+                            <div class="input-field" [class.error]="loginForm.controls['email'].dirty && loginForm.hasError('required','email')">
+                                <input formControlName="email" type="email" placeholder="UserId">
+                            </div>
+                        </div>
+                        <small *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required','email')" class="text-danger">*UserId is required</small>
+                        <div class="form-group pt-3">
+                            <div class="input-field" [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">
+                                <input formControlName="password" [type]="type" placeholder="placeholder">
+                                <span (click)="hideShowPass()" class="fa {{eyeIcon}}"></span>
+                            </div>
+                        </div> 
+                        <small  *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')"  class="text-danger">*Password is required</small>
+                        <div class="mt-4">
+                            <a id="forget" class="font-weight-bold">Forget password?</a>
+                        </div>
+                        <button (click)="onSubmit()" type="submit" class="btn btn-primary mt-4 w-75">Login</button>
+                        <div class="text-center pt-4 text-muted">
+                            Dont have an account <a id="forget" routerLink="/signup">Signup</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+       </div>
+        <div class="col-lg-6">
+
+        </div>
+    </div>
+</div> -->
