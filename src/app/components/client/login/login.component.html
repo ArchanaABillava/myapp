@@ -6,12 +6,12 @@
                 <div class="login-container">
                 <div class="card">
                     <div class="card-body">
-                        <h3 class="card-title fw-bold text-decoration-underline text-center">Log-In</h3>
+                        <h3 class="card-title fw-bold text-decoration-underline text-center">Login</h3>
                      <div class="panel-body p-3">
                         <form [formGroup]="loginForm">
                             <div class="form-group pt-3">
                                 <!---fields to enter  User Id and Password--->
-                                <label for="customerid">User Id :</label>
+                                <label for="customerid">User Id</label>
                                 <div class="input-field" [class.error]="loginForm.controls['customerid'].dirty && loginForm.hasError('required','customerid')">
                                     <span class="fa fa-user-circle pe-2"></span>
                                     <input formControlName="customerid" type="text" placeholder="Please enter your User Id">
@@ -19,7 +19,7 @@
                             </div>
                             <small *ngIf="loginForm.controls['customerid'].dirty && loginForm.hasError('required','customerid')" class="text-danger">*User Id is required</small>
                             <div class="form-group pt-3">
-                                <label for="password">Password :</label>
+                                <label for="password">Password</label>
                                 <div class="input-field" [class.error]="loginForm.controls['password'].dirty && loginForm.hasError('required','password')">
                                     <span class="fa fa-key pe-2"></span>
                                     <input formControlName="password" [type]="type" placeholder="Please enter your password">    
@@ -29,7 +29,7 @@
                             <small  *ngIf="loginForm.controls['password'].dirty && loginForm.hasError('required','password')"  class="text-danger">*Password is required</small>
                             <button (click)="onSubmit()" type="submit" class="btn btn-primary mt-4 w-100 d-block m-auto">Login</button>
                             <div class="text-center pt-4 text-muted">
-                                 <span class="nextpage">Don't have an account <a id="forget" routerLink="/signup">&nbsp;Signup</a></span>
+                                 <span class="nextpage">Don't have an account <a id="forget" routerLink="/signup">&nbsp;Register</a></span>
                             </div>
                         </form>
                     </div>
