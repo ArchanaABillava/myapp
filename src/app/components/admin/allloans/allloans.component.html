@@ -5,7 +5,7 @@
   <div class="navtab" style="margin-top: 100px;">
     <nav class="mb-3">
       <div class="nav nav-tabs" id="nav-tab" role="tablist">
-        <!----Nav tab of Loan request, Acknowledged Loan and Search ----->
+        <!----Nav tab of Loan request, Acknowledged Loan and Search tabs----->
         <button class="nav-link active" id="loan-request-tab" data-bs-toggle="tab" data-bs-target="#loan-request"
           type="button" role="tab" aria-controls="loan-request" aria-selected="true">Loan Requests</button>
         <button class="nav-link" id="loan-details-tab" data-bs-toggle="tab" data-bs-target="#loan-details" type="button"
@@ -73,6 +73,7 @@
               <tr>
                 <th>Loan ID</th>
                 <th>Account Number</th>
+                <th>Loan Account Number</th>
                 <th>Loan Type</th>
                 <th>Loan Amount</th>
                 <th>Tenure(m)</th>
@@ -83,6 +84,7 @@
               <tr *ngFor="let loan of allLoanArray  | paginate :{itemsPerPage :tableSize,currentPage:page,totalItems:count}; let i=index">
                 <td><a [routerLink]="['/allLoans/'+loan.loanId]">{{ loan.loanId }}</a> </td>
                 <td style="font-weight: bold;">{{ loan.accountNum }}</td>
+                <td style="font-weight: bold;">{{ loan.loanAccNum }}</td>
                 <td style="text-transform: capitalize;">{{ loan.loanType }}</td>
                 <td>Rs.{{ loan.loanAmount }}</td>
                 <td>{{ loan.tenure }}</td>
