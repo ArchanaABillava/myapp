@@ -50,7 +50,7 @@
                 
                 <div class="main-container" >
                     <p class="title" >Email</p>
-                    <div class="sub-container"><p class="content">{{this.users["email"]}}</p></div>
+                    <div class="sub-container"><p class="content" style="text-transform: lowercase;">{{this.users["email"]}}</p></div>
                 </div>
                 <div class="main-container" >
                     <p class="title">Contact Number</p>
@@ -69,6 +69,14 @@
                     <p class="title">Gender</p>
                     <div class="sub-container"><p class="content">{{this.users["gender"]}} </p></div>
                 </div>
+                <div class="main-container" >
+                    <p class="title" >Date of Birth</p>
+                    <div class="sub-container"><p class="content">{{this.users["dob"]}}</p></div>
+                </div>
+                <div class="main-container" >
+                    <p class="title" >Address</p>
+                    <div class="sub-container"><p class="content">{{this.users["addresss"]}}</p></div>
+                </div>
                 </div>
                 <div>
                 <div class="main-container" >
@@ -85,10 +93,9 @@
                             <p class="title">Occupation Address</p>
                             <div class="sub-container"><p class="content">{{this.users["occupationAddress"]}}</p></div>
                         </div>
-
-                    <!--If employee type is Salaried then these fields are displayed---->    
                     </ng-container>
-                    <ng-container *ngIf="this.emptype == 'salaried'" >
+                <!--If employee type is Salaried then these fields are displayed----> 
+                <ng-container *ngIf="this.emptype == 'salaried'" >
                         <div class="main-container" >
                             <p class="title" >Organization Name</p>
                             <div class="sub-container"><p class="content">{{this.users["organizationName"]}} </p></div>
@@ -97,16 +104,7 @@
                             <p class="title" >Organization Address</p>
                             <div class="sub-container"><p class="content">{{this.users["organizationAddress"]}}</p></div>
                         </div>
-                    </ng-container>
-                    <div class="main-container" >
-                        <p class="title" >Date of Birth</p>
-                        <div class="sub-container"><p class="content">{{this.users["dob"]}}</p></div>
-                    </div>
-                    <div class="main-container" >
-                        <p class="title" >Address</p>
-                        <div class="sub-container"><p class="content">{{this.users["addresss"]}}</p></div>
-                    </div>
-                
+                </ng-container>
                     <div class="main-container" >
                         <p class="title">Work Experience</p>
                         <div class="sub-container"><p class="content">{{this.users["workExp"]}}</p></div>
@@ -131,6 +129,7 @@
                 <ng-container *ngIf="this.type == 'educationLoan'" >
                     <h3 class="text-center loan_heading">Education Loan Details</h3>
                 </ng-container>
+                
                 <div class="grid-container" >
                 <div class="mt-2">
                 <div class="main-container">
@@ -153,6 +152,8 @@
                     <p class="title">Total Loan Amount</p>
                     <div class="sub-container"><p class="content">Rs.{{this.loans["loanTotalAmount"]}}</p></div>
                 </div>
+                
+
                 </div>
 
                 <!----If  Loan type is House Loan then following  fields are displayed---->
@@ -182,7 +183,9 @@
                         <p class="title">Loan End Date</p>
                         <div class="sub-container"><p class="content">{{this.loans["loanEndDate"]}}</p></div>
                     </div>
+                    
                   </div>
+
                 </ng-container>
 
                   <!----If  Loan type is Vehicle Loan then following  fields are displayed---->

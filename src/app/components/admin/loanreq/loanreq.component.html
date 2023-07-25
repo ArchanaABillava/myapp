@@ -310,13 +310,26 @@
                     placeholder="Enter your comment" required></textarea>
                 </div>
               </div>
+              <div class="d-flex justify-content-between">
+
+                <button type="button" class="btn btn-outline-primary w-25" (click)="updateLoanStatus('Approved')">Accept</button>
+              
+                <button type="button" class="btn btn-outline-secondary w-25" (click)="updateLoanStatus('Need More Info')">Need more
+                  info</button>
+              
+                <button type="button" class="btn btn-outline-primary w-25" (click)="updateLoanStatus('Rejected')">Reject</button>
+              
+              </div>
             </div>
             <div class="col-lg-1 col-md-1 col-12"></div>
           </div>
-          <div class="d-flex justify-content-between">
-            <button type="button" class="btn btn-outline-success w-25" (click)="updateLoanStatus('Approved')">Accept</button>
+          <!-- <div class="d-flex justify-content-between"> -->
+            <!-- <button type="button" class="btn btn-outline-success w-25" (click)="updateLoanStatus('Approved')">Accept</button>
             <button type="button" class="btn btn-outline-primary w-25" (click)="updateLoanStatus('Need More Info')">Need more info</button>
-            <button type="button" class="btn btn-outline-danger w-25" (click)="updateLoanStatus('Rejected')">Reject</button>
+            <button type="button" class="btn btn-outline-danger w-25" (click)="updateLoanStatus('Rejected')">Reject</button> -->
+           
+
+
           </div>
 </div>
       </div>
@@ -324,4 +337,4 @@
   </div>
 
 
-</div>
+<!-- </div> -->
