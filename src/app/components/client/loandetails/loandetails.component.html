@@ -19,7 +19,7 @@
                                 </div>
                                 <br>
                                 <div class="mb-2">
-                                    <label for="loanType" class="form-label">Loan Type :</label>
+                                    <label for="loanType" class="form-label">Loan Type <sup class="star">*</sup> :</label>
                                     <select class="form-select" class="input-field" formControlName="loanType"
                                         (change)="onChange($event)">
                                         <option value="" selected>Choose Loan Type</option>
@@ -36,7 +36,7 @@
                                     </small>
                                 </div>
                                 <div class="mb-2">
-                                        <label for="LoanPurpose" class="form-label">Loan Purpose :</label>
+                                        <label for="LoanPurpose" class="form-label">Loan Purpose <sup class="star">*</sup>:</label>
                                         <select class="form-select" class="input-field" formControlName="loanPurpose">
                                             <option value="" selected>Choose Loan Purpose</option>
                                             <!--- If Loan type is House Loan then below field related to Loan Purpose is displayed  --->
@@ -72,7 +72,7 @@
                                 <br>
 
                                 <div class="mb-2">
-                                    <label for="loanAmount" class="form-label">Loan Amount :</label>
+                                    <label for="loanAmount" class="form-label">Loan Amount <sup class="star">*</sup>:</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput1"
                                         placeholder="Enter your Loan Amount" class="input-field"
                                         formControlName="loanAmount">
@@ -96,7 +96,7 @@
                                 <!--- If Loan type is Personal Loan then below fields are displayed  -->
                                 <ng-container *ngIf="this.type == 'personalLoan'">
                                     <div class="mb-2">
-                                        <label for="ongoingLoan" class="form-label">Any Ongoing Loan :</label>
+                                        <label for="ongoingLoan" class="form-label">Any Ongoing Loan <sup class="star">*</sup> :</label>
                                         <select class="form-select" class="input-field" formControlName="ongoingLoan">
                                             <option value="" selected>Choose Yes/No</option>
                                                 <option value="yes">Yes</option>
@@ -112,7 +112,7 @@
                                 <!--- If Loan type is Vehicle Loan then below fields are displayed  -->
                                 <ng-container *ngIf="this.type == 'vehicleLoan'">
                                     <div class="mb-2">
-                                        <label for="vehicleType" class="form-label">Vehicle Type:</label>
+                                        <label for="vehicleType" class="form-label">Vehicle Type <sup class="star">*</sup>:</label>
                                         <select class="form-select" class="input-field" formControlName="vehicleType">
                                             <option value="" selected>Choose Type of vehicle</option>
                                                 <option value="car">Car</option>
@@ -130,7 +130,7 @@
                                 <!--- If Loan type is Education Loan then below fields are displayed  -->
                                 <ng-container *ngIf="this.type == 'educationLoan'">
                                     <div class="mb-2">
-                                        <label for="educationType" class="form-label">Education Type:</label>
+                                        <label for="educationType" class="form-label">Education Type <sup class="star">*</sup>:</label>
                                         <select class="form-select" class="input-field" formControlName="educationType">
                                             <option value="" selected>Choose Type of Education</option>
                                             <option value="PG">PG</option>
@@ -148,7 +148,7 @@
                                 <!--- If Loan type is House Loan then below fields are displayed  -->
                                 <ng-container *ngIf="this.type == 'houseLoan'">
                                 <div class="mb-2">
-                                    <label for="propertyValue" class="form-label">Property Value :</label>
+                                    <label for="propertyValue" class="form-label">Property Value <sup class="star">*</sup> :</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput1"
                                         placeholder="Enter your Property Value" class="input-field"
                                         formControlName="propertyValue">
@@ -165,7 +165,7 @@
                                 </div>
                                 <br>
                                 <div class="mb-2">
-                                    <label for="propertyArea" class="form-label">Property Area :</label>
+                                    <label for="propertyArea" class="form-label">Property Area <sup class="star">*</sup>:</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput1"
                                         placeholder="Enter in sqfts" class="input-field" formControlName="propertyArea">
                                     <small
@@ -184,7 +184,7 @@
                                 <!--- If Loan type is Vehicle Loan then below fields are displayed  -->
                                 <ng-container *ngIf="this.type == 'vehicleLoan'">
                                 <div class="mb-2">
-                                    <label for="vehiclePrice" class="form-label">Vehicle Price :</label>
+                                    <label for="vehiclePrice" class="form-label">Vehicle Price <sup class="star">*</sup> :</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput1"
                                         placeholder="Enter price of vehicle" class="input-field"
                                         formControlName="vehiclePrice">
@@ -201,7 +201,7 @@
                                 </div>
                                 <br>
                                 <div class="mb-2">
-                                    <label for="vehiclercNumber" class="form-label">Vehicle RC-Number :</label>
+                                    <label for="vehiclercNumber" class="form-label">Vehicle RC-Number <sup class="star">*</sup>:</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput1"
                                         placeholder="Enter RC Number of Vehicle" class="input-field"
                                         formControlName="vehiclercNumber">
@@ -221,7 +221,7 @@
                                 <!--- If Loan type is Education Loan then below fields are displayed  -->
                                 <ng-container *ngIf="this.type == 'educationLoan'">
                                 <div class="mb-2">
-                                    <label for="totalFee" class="form-label">Total Fees :</label>
+                                    <label for="totalFee" class="form-label">Total Fees <sup class="star">*</sup> :</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput1"
                                         placeholder="Enter fees for the course" class="input-field"
                                         formControlName="totalFee">
@@ -243,7 +243,7 @@
                                 </div>
                                 <br>
                                 <div class="mb-2">
-                                    <label for="courseDuration" class="form-label">Course Duration :</label>
+                                    <label for="courseDuration" class="form-label">Course Duration <sup class="star">*</sup> :</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput1"
                                         placeholder="Enter duration of the course in years" class="input-field"
                                         formControlName="courseDuration">
@@ -270,7 +270,7 @@
                             <div class="col-lg-6 col-md-6 col-12">
 
                                 <div class="mb-2">
-                                    <label for="tenure" class="form-label">Tenure :</label>
+                                    <label for="tenure" class="form-label">Tenure <sup class="star">*</sup> :</label>
                                     <input type="number" class="form-control" id="exampleFormControlInput1"
                                         placeholder="Enter in months" class="input-field" formControlName="tenure" min="3" max="300">
                                     <small *ngIf="loanBasic.get('tenure')?.invalid && loanBasic.get('tenure')?.touched"
@@ -281,7 +281,7 @@
                                 <br>
                               
                                 <div class="mb-2">
-                                    <label for="annualIncome" class="form-label">Annual Income :</label>
+                                    <label for="annualIncome" class="form-label">Annual Income  <sup class="star">*</sup>:</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput1"
                                         placeholder="Enter your Annual Income" class="input-field"
                                         formControlName="annualIncome">
@@ -303,7 +303,7 @@
                                 </div>
                                 <br>
                                 <div class="mb-2">
-                                    <label for="otherEmi" class="form-label">Other EMI :</label>
+                                    <label for="otherEmi" class="form-label">Other EMI <sup class="star">*</sup> :</label>
                                     <input type="text" class="form-control" id="exampleFormControlInput1"
                                         placeholder="Enter your Expenses" class="input-field"
                                         formControlName="otherEmi">
@@ -322,7 +322,7 @@
                                 <!--- If Loan type is House Loan then below fields are displayed  -->
                                 <ng-container *ngIf="this.type == 'houseLoan'">
                                     <div class="mb-2">
-                                        <label for="propertyLoc" class="form-label">Property Address :</label>
+                                        <label for="propertyLoc" class="form-label">Property Address <sup class="star">*</sup>:</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1"
                                             placeholder="Enter your Property Location" class="input-field"
                                             formControlName="propertyLoc">
@@ -337,7 +337,7 @@
                                 </ng-container>
                                 <ng-container *ngIf="this.type == 'vehicleLoan'">
                                     <div class="mb-2">
-                                        <label for="vendorName" class="form-label">Vendor Name  :</label>
+                                        <label for="vendorName" class="form-label">Vendor Name <sup class="star">*</sup> :</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1"
                                             placeholder="Enter name of the vendor" class="input-field"
                                             formControlName="vendorName">
@@ -352,7 +352,7 @@
                                     </div>
                                     <br>
                                     <div class="mb-2">
-                                        <label for="vendorAddress" class="form-label">Vendor Address  :</label>
+                                        <label for="vendorAddress" class="form-label">Vendor Address <sup class="star">*</sup> :</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1"
                                             placeholder="Enter address of the vendor" class="input-field"
                                             formControlName="vendorAddress">
@@ -368,7 +368,7 @@
                                 <!--- If Loan type is Education Loan then below fields are displayed  -->
                                 <ng-container *ngIf="this.type == 'educationLoan'">
                                     <div class="mb-2">
-                                        <label for="courseName" class="form-label">Course Name  :</label>
+                                        <label for="courseName" class="form-label">Course Name <sup class="star">*</sup> :</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1"
                                             placeholder="Enter name of the course" class="input-field"
                                             formControlName="courseName">
@@ -383,7 +383,7 @@
                                     </div>
                                     <br>
                                     <div class="mb-2">
-                                        <label for="instituteName" class="form-label">Institute Name & Address  :</label>
+                                        <label for="instituteName" class="form-label">Institute Name & Address <sup class="star">*</sup>  :</label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1"
                                             placeholder="Enter address and name of the Institute" class="input-field"
                                             formControlName="instituteName">
@@ -401,7 +401,7 @@
                         </div>
                         <!--Code to upload documents-->
                         <div class="mb-2">
-                            <label class="form-label upload_label" for="file">Upload Documents :</label>
+                            <label class="form-label upload_label" for="file">Upload Documents <sup class="star">*</sup>:</label>
                             <div class="document_container">
                                 <h5 class="card-title">Documents</h5>
                                 <!--For House loan ,Bank statement and Property documents are required-->

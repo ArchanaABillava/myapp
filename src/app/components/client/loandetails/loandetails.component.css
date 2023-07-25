@@ -58,7 +58,10 @@ input{
     text-decoration: none;
     width: 100%;
 }
-
+.star{
+    color:red;
+    font-size:small;
+    }
 .card-title{
    color:#0275d8;
    font-family: inherit;

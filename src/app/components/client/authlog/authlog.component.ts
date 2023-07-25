@@ -61,7 +61,7 @@ export class AuthlogComponent {
   }
 
   startTimer() {
-    const totalSeconds = 120;
+    const totalSeconds = 300;
     this.remainingTime = totalSeconds;
     this.interval = setInterval(() => {
     this.minutes = Math.floor(this.remainingTime / 60);
