@@ -14,6 +14,10 @@
               <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact"
                   type="button" role="tab" aria-controls="nav-contact" aria-selected="false">
                   Loan-Status</button>
+              <button class="nav-link active fa fa-chevron-circle-left" id="back-tab" data-bs-toggle="tab" data-bs-target="#back"
+                  type="button" role="tab" aria-controls="back" aria-selected="false" (click)="toBack()">
+                  </button>
+                 
           </div>
       </nav>
   </div>
@@ -31,12 +35,12 @@
                               value="{{ loanDetailsObj.customerAccountInfo.userName }}" disabled>
                       </div>
                       <div class="mb-3">
-                          <label for="exampleFormControlInput1" class="form-label fw-bold">Account Number </label>
+                          <label for="exampleFormControlInput1" class="form-label fw-bold">Account Number</label>
                           <input type="email" class="form-control" id="exampleFormControlInput1"
                               value="{{loanDetailsObj.customerAccountInfo.accountNum}}" disabled>
                       </div>
                       <div class="mb-3">
-                          <label for="exampleFormControlInput1" class="form-label fw-bold">Aadhar Number </label>
+                          <label for="exampleFormControlInput1" class="form-label fw-bold">Aadhar Number</label>
                           <input type="email" class="form-control" id="exampleFormControlInput1"
                               value="{{loanDetailsObj.customerAccountInfo.aadharNum}}" disabled>
                       </div>
@@ -59,7 +63,7 @@
                   <div class="col-lg-6 col-md-12 col-12">
                       <div class="mb-3">
                           <label for="exampleFormControlInput1" class="form-label fw-bold">Email ID</label>
-                          <input type="email" class="form-control" id="exampleFormControlInput1" style="text-transform: lowercase;"
+                          <input type="email" class="form-control" id="exampleFormControlInput1"
                               value="{{ loanDetailsObj.customerAccountInfo.email }}" disabled>
                       </div>
                       <div class="mb-3">
@@ -68,7 +72,7 @@
                               value="{{ loanDetailsObj.customerAccountInfo.panNum }}" disabled>
                       </div>
                       <div class="mb-3">
-                          <label for="exampleFormControlInput1" class="form-label fw-bold">Employee Type</label>
+                          <label for="exampleFormControlInput1" class="form-label fw-bold">Employee Type </label>
                           <input type="email" class="form-control" id="exampleFormControlInput1"
                               value="{{ loanDetailsObj.customerAccountInfo.empType }}" disabled>
                       </div>
@@ -89,18 +93,19 @@
                                   value="{{ loanDetailsObj.customerAccountInfo.organizationAddress }}" disabled>
                           </div>
                       </ng-container>
-                      <ng-container *ngIf="loanDetailsObj.customerAccountInfo.empType =='self-employed'">
+                      <ng-container *ngIf="loanDetailsObj.customerAccountInfo.empType =='Self Employed'">
                           <div class="mb-3">
-                              <label for="exampleFormControlInput1" class="form-label fw-bold">Occupation Name</label>
+                              <label for="exampleFormControlInput1" class="form-label fw-bold">Occupation Name
+                                  </label>
                               <input type="email" class="form-control" id="exampleFormControlInput1"
                                   value="{{ loanDetailsObj.customerAccountInfo.occupationName }}" disabled>
                           </div>
                           <div class="mb-3">
-                              <label for="exampleFormControlInput1" class="form-label fw-bold">Occupation Address</label>
+                              <label for="exampleFormControlInput1" class="form-label fw-bold">Occupation Address
+                                  </label>
                               <input type="email" class="form-control" id="exampleFormControlInput1"
                                   value="{{ loanDetailsObj.customerAccountInfo.occupationAddress }}" disabled>
                           </div>
-                          
                       </ng-container>
                   </div>
               </div>
@@ -139,7 +144,6 @@
                       <label class="form-label fw-bold">Available EMI</label>
                       <input type="text" class="form-control" value="&#x20B9;{{availableEmi}}" disabled>
                     </div>
-                    
                   </div>
                   <div class="col-lg-6 col-md-6 col-12">
                     
@@ -211,7 +215,6 @@
                       <label class="form-label fw-bold">Total Fee</label>
                       <input type="text" class="form-control" value="&#x20B9;{{loanDetailsObj.loanDetails.totalFee}}" disabled>
                     </div>
-                    
                       
                   </div>
                  
@@ -300,41 +303,222 @@
                 </div>
                 <div class="mb-3">
                   <label class="form-label fw-bold">Loan Application Date</label>
-                  <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.modified_At}}" disabled>
+                  <input type="text" class="form-control" value="{{formattedDate}}" disabled>
                 </div>
               </div>
               <div class="form-group" [formGroup]="commentForm">
-                <div class="mb-3">
+                <div *ngIf="loanDetailsObj.loanDetails.loanStatus =='Processing'" class="mb-3" >
                   <label for="comment" class="form-label fw-bold">Provide your feedback</label>
-                  <textarea class="form-control" id="comment" name="comment" formControlName="comment" rows="4"
-                    placeholder="Enter your comment" required></textarea>
+                  <textarea  class="form-control" id="comment" name="comment" formControlName="comment" rows="4"
+                    placeholder="Enter your comment" required ></textarea>
                 </div>
-              </div>
-              <div class="d-flex justify-content-between">
+                 <div class="d-flex justify-content-evenly">
 
-                <button type="button" class="btn btn-outline-primary w-25" (click)="updateLoanStatus('Approved')">Accept</button>
-              
-                <button type="button" class="btn btn-outline-primary w-25" (click)="updateLoanStatus('Need More Info')">Need more
-                  info</button>
-              
-                <button type="button" class="btn btn-outline-primary w-25" (click)="updateLoanStatus('Rejected')">Reject</button>
-              
+                 <button type="button" class="btn btn-outline-success w-25" (click)="updateLoanStatus('Approved')" [disabled]="disabled">Accept</button>
+                 <button type="button" class="btn btn-outline-primary w-25" (click)="updateLoanStatus('Need More Info')" [disabled]="disabled">Need more info</button>
+                 <button type="button" class="btn btn-outline-danger w-25" (click)="updateLoanStatus('Rejected')" [disabled]="disabled">Reject</button>
+          </div>
               </div>
             </div>
             <div class="col-lg-1 col-md-1 col-12"></div>
           </div>
-          <!-- <div class="d-flex justify-content-between"> 
+          <!-- <div class="d-flex justify-content-between">
             <button type="button" class="btn btn-outline-success w-25" (click)="updateLoanStatus('Approved')">Accept</button>
             <button type="button" class="btn btn-outline-primary w-25" (click)="updateLoanStatus('Need More Info')">Need more info</button>
-            <button type="button" class="btn btn-outline-danger w-25" (click)="updateLoanStatus('Rejected')">Reject</button>  -->
-           
-
-
-          </div>
+            <button type="button" class="btn btn-outline-danger w-25" (click)="updateLoanStatus('Rejected')">Reject</button>
+          </div> -->
 </div>
       </div>
+    
 
   </div>
 
+  <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+</div>
 
-<!-- </div> -->
+
+
+
+
+
+
+
+
+
+<!-- <body>
+    <div class="container">
+        <h3>Account  Details</h3>
+        <div class="user-details"> -->
+
+<!-- <div>
+            <label class="form-label fw-bold">Name: {{loanDetailsObj.customerAccountInfo.userName}}  </label>
+            
+          </div> -->
+
+<!-- <div>
+            <label>Account Number: {{loanDetailsObj.customerAccountInfo.accountNum}}</label>
+          </div>
+          <div>
+            <label>Gender: {{loanDetailsObj.customerAccountInfo.gender}}</label>
+           
+          </div>
+          <div>
+            <label>Address: {{loanDetailsObj.customerAccountInfo.addresss}}</label>
+            
+          </div>
+          
+          <div>
+            <label>Mobile Number: {{loanDetailsObj.customerAccountInfo.contactNum}}</label>
+            
+          </div>
+          <div>
+            <label>Email ID: {{loanDetailsObj.customerAccountInfo.email}}</label>
+         
+          </div>
+          <div>
+            <label>Employee Type: {{loanDetailsObj.customerAccountInfo.empType}}</label>
+   
+          </div>
+          <div>
+            <label>Annual Income: {{loanDetailsObj.loanDetails.annualIncome}}</label>
+   
+          </div>
+       
+          <div *ngIf="loanDetailsObj.customerAccountInfo.empType=='salaried'">
+          
+             <label style="margin-right: 130px;">Organization Name: {{loanDetailsObj.customerAccountInfo.organizationName}}</label>
+           
+            <label>Organization Address: {{loanDetailsObj.customerAccountInfo.organizationAddress}}</label>
+        </div>
+        <div *ngIf="loanDetailsObj.customerAccountInfo.empType=='self-employed'">
+          
+            <label style="margin-right: 150px;">Occupation Name: {{loanDetailsObj.customerAccountInfo.occupationName}}</label>
+          
+           <label>Occupation Address: {{loanDetailsObj.customerAccountInfo.occupationAddress}}</label>
+       </div>
+
+        
+         
+        </div>
+        <h3>Loan  Details</h3>
+        <div class="user-details">
+          <div>
+            <label>Loan Type: {{loanDetailsObj.loanDetails.loanType}}</label>
+         
+          </div>
+          <div>
+            <label>Loan Amount: {{loanDetailsObj.loanDetails.loanAmount}}</label>
+        
+          </div>
+          <div>
+            <label>Interest: {{loanDetailsObj.loanDetails.interest}}%</label>
+        
+          </div>
+          <div>
+            <label>Tenure (in months): {{loanDetailsObj.loanDetails.tenure}}</label>
+          
+          </div>
+          <div>
+            <label>Other EMI: {{loanDetailsObj.loanDetails.otherEmi}} </label>
+         
+          </div>
+          <div>
+            <label>Loan EMI: {{loanDetailsObj.loanDetails.loanEmi}} </label>
+         
+          </div>
+          <div *ngIf="loanDetailsObj.loanDetails.loanType=='houseLoan'">
+            <label style="margin-right: 90px;">Loan Purpose: {{loanDetailsObj.loanDetails.loanPurpose}} </label>
+            <label>Property Area: {{loanDetailsObj.loanDetails.propertyArea}}  sq.ft</label>
+          </div>
+          
+          
+
+        </div>
+        <iframe id="fileViewer" style="display: none;"></iframe>
+        <h3>Documents</h3>
+       
+        <ul>
+          <li *ngFor="let file of fName; let i = index">
+           
+            <a  (click)="openModal(fpath[i])" style="cursor: pointer;color:blue;form-label fw-boldoration: underline;">{{ file }}</a>
+       
+          </li>
+        </ul>
+  
+
+
+
+<div id="fileModal" class="modal">
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <iframe [src]="getSafeUrl(selectedFile)" frameborder="0" ></iframe>
+  </div>
+</div> -->
+<!-- <ul> starting one
+         
+            <li *ngFor="let file of fName; let i = index">
+              <a [href]="fpath[i]" target="_blank">{{ file }}</a>
+            </li>
+          
+            </ul> -->
+
+<!--        
+        <form [formGroup]="commentForm" >
+          <h3 style="text-align: center;">Add a Comment</h3>
+          
+          <textarea id="comment" name="comment" formControlName="comment" placeholder="Enter your comment" required style="height: 100px;width: 500px;margin-left: 130px;"></textarea>
+          
+          
+        </form>
+        
+        <div class="button-container">
+         
+          <button class="approve" (click)="updateLoanStatus('Approved')" >Approve</button>
+          <button class="need-info" (click)="updateLoanStatus('Need More Info')" >Need More Info</button>
+          <button class="reject" (click)="updateLoanStatus('Rejected')" >Reject</button>
+      
+          
+        </div> 
+      </div> -->
+
+
+
+
+<!-------DOCUMENT SECTION-->
+<!-- <div>
+        <iframe id="fileViewer" style="display: none;"></iframe>
+        <h3>Documents</h3>
+
+        <ul>
+          <li *ngFor="let file of fName; let i = index">
+            <a  (click)="openModal(fpath[i])" style="cursor: pointer;color:blue;form-label fw-boldoration: underline;">{{ file }}</a>
+          </li>
+        </ul> -->
+
+<!-- <div id="fileModal" class="modal">
+          <div class="modal-content">
+            <span class="close" (click)="closeModal()">&times;</span>
+            <iframe [src]="getSafeUrl(selectedFile)" frameborder="0" ></iframe>
+          </div>
+        </div>
+
+      </div> -->
+
+
+<!----------COMMENT SECTION-------->
+<!-- <div>
+      <form [formGroup]="commentForm" >
+        <h3 style="text-align: center;">Add a Comment</h3>
+        <textarea id="comment" name="comment" formControlName="comment" placeholder="Enter your comment" required style="height: 100px;width: 500px;margin-left: 130px;"></textarea>
+      </form>
+    </div> -->
+
+
+<!---------Button------->
+<!-- <div class="button-container">
+         <button class="approve" (click)="updateLoanStatus('Approved')" >Approve</button>
+        <button class="need-info" (click)="updateLoanStatus('Need More Info')" >Need More Info</button>
+        <button class="reject" (click)="updateLoanStatus('Rejected')" >Reject</button>
+      </div>  -->
+
+<!-- </body> -->

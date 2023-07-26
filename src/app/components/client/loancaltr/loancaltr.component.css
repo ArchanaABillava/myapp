@@ -16,7 +16,9 @@
 .loan-calculator .top {
     background: #5f8ce6;
     color: #fff;
-    padding: 32px;
+    /* padding: 32px; */
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .loan-calculator .top h2{
     margin-top: 0;

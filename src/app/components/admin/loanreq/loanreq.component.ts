@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import {Chart,registerables} from 'chart.js';
+import { DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-loanreq',
@@ -32,9 +34,12 @@ export class LoanreqComponent {
   color:string = '';
   myChart!: Chart;
   type:any;
+  disabled:boolean = false;
+  formattedDate:any;
+  public loading:boolean=false;
 
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private fb: FormBuilder, private toast: NgToastService, private router: Router, private api: ApiService,private sanitizer: DomSanitizer) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient, private fb: FormBuilder, private toast: NgToastService, private router: Router, private api: ApiService,private sanitizer: DomSanitizer,private datePipe: DatePipe) { }
   ngOnInit() {
     this.route.params.subscribe(params => {
       this.loanId = params['id'];
@@ -47,7 +52,9 @@ export class LoanreqComponent {
   }
 
   
-
+  toBack(){
+    this.router.navigate(['allLoans']);
+  }
  
 
   getLoanDetails() {
@@ -65,7 +72,13 @@ export class LoanreqComponent {
       this.tenure = this.loanDetailsObj.loanDetails.tenure;
       this.interest = this.loanDetailsObj.loanDetails.interest;
 
+      if(this.loanStatus != 'Processing'){
+        this.disabled = true;
+      }
 
+      const dateString = this.loanDetailsObj.loanDetails.modified_At;
+       this.formattedDate = this.datePipe.transform(dateString, 'dd-MM-yyyy');
+       console.log(typeof(this.loanDetailsObj.loanDetails.modified_At));
       const annualIncome =this.loanDetailsObj.loanDetails.annualIncome;
       const monthlyIncome=this.loanDetailsObj.loanDetails.monthlyIncome ;
       const monthemi =(monthlyIncome/2) ;
@@ -89,6 +102,7 @@ export class LoanreqComponent {
 
   updateLoanStatus(status: string) {
     if (this.commentForm.valid) {
+      this.loading=true;
       const payload = {
         Id: this.loanDetailsObj.loanDetails.loanId,
         status: status,
@@ -109,6 +123,7 @@ export class LoanreqComponent {
         error => {
           this.toast.error({ detail: "Failed to update loan status" });
           console.log('Failed to update loan status.');
+          this.loading=false;
           console.log(error);
         }
       );

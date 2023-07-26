@@ -4,6 +4,7 @@ import { Observable, map } from 'rxjs';
 import { ApiService } from 'src/app/services/api.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { NgToastService } from 'ng-angular-popup';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-allloans',
@@ -28,6 +29,8 @@ export class AllloansComponent {
   searchform!: FormGroup;
   searchParams: any = {};
 
+  
+
 
   constructor(private api:ApiService,private formBuilder: FormBuilder,private http:HttpClient,private toast:NgToastService)
   {
@@ -44,6 +47,8 @@ export class AllloansComponent {
     this.getAllLoanReq();
   }
 
+
+ 
   //function related to fetching data about all loan request
   getAllLoanReq() { 
       const loanObservable: Observable<any> = this.api.getAllLoans();
@@ -87,6 +92,7 @@ export class AllloansComponent {
             // this.ngOnInit();
           },
           error => {
+            this.searchArray = 0;
             console.log(error);
             this.toast.info({detail:"No such records found",summary:error.error.message,duration:5000});
           }

@@ -51,6 +51,7 @@ export class LoanFormComponent {
 
 //Function to download file
   downloadPdf() {
+    this.loading=true;
     const pdf = new jsPDF();
     const options: HTMLOptions = {
       html2canvas: { scale: 0.193,removeContainer:true},
