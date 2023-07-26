@@ -72,9 +72,11 @@
     font-size: 18px;
     font-weight: 900;
     cursor: pointer;
-    margin: 30px 30px;
+    margin: 20px 20px;
+    
    
 }
+
 .loan-calculator .calculate-btn2 {
     background-color: #f78e8e;
     color: #fff;

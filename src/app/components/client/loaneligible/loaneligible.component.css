@@ -74,6 +74,7 @@ input{
    font-family: inherit;
 }
 
+
 @media only screen and (max-height: 767px) {
 
 	.container-fluid{

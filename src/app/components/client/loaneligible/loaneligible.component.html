@@ -31,7 +31,7 @@
                                         <div class="mb-2">
                                             <label for="loanType" class="form-label">Loan Type </label>
                                             <!---Based on Loan type , interest rate will be displayed using onchange()-->
-                                            <select class="form-select" class="input-field" formControlName="loanType" (change)="onChange($event)">
+                                            <select class="form-select" class="input-field" formControlName="loanType" (change)="onChange($event)" style="width:325px;">
                                                 <option value="" selected>Choose type of Loan</option>
                                                 <option value="houseLoan">House Loan</option>
                                                 <option value="personalLoan">Personal Loan</option>
@@ -70,7 +70,7 @@
                                         <br>
                                         <div class="mb-2">
                                             <label for="interest" class="form-label">Interest </label>
-                                            <div class="interest_div" disabled>{{interest}}%</div>
+                                            <div class="interest_div" disabled style="width:325px;">{{interest}}%</div>
                                         </div>
                                         <br>
                                     </div>

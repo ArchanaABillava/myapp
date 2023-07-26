@@ -299,7 +299,7 @@
                   <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.loanStatus}}" disabled>
                 </div>
                 <div class="mb-3">
-                  <label class="form-label fw-bold">Updated-on</label>
+                  <label class="form-label fw-bold">Loan Application Date</label>
                   <input type="text" class="form-control" value="{{loanDetailsObj.loanDetails.modified_At}}" disabled>
                 </div>
               </div>
@@ -314,7 +314,7 @@
 
                 <button type="button" class="btn btn-outline-primary w-25" (click)="updateLoanStatus('Approved')">Accept</button>
               
-                <button type="button" class="btn btn-outline-secondary w-25" (click)="updateLoanStatus('Need More Info')">Need more
+                <button type="button" class="btn btn-outline-primary w-25" (click)="updateLoanStatus('Need More Info')">Need more
                   info</button>
               
                 <button type="button" class="btn btn-outline-primary w-25" (click)="updateLoanStatus('Rejected')">Reject</button>
@@ -323,10 +323,10 @@
             </div>
             <div class="col-lg-1 col-md-1 col-12"></div>
           </div>
-          <!-- <div class="d-flex justify-content-between"> -->
-            <!-- <button type="button" class="btn btn-outline-success w-25" (click)="updateLoanStatus('Approved')">Accept</button>
+          <!-- <div class="d-flex justify-content-between"> 
+            <button type="button" class="btn btn-outline-success w-25" (click)="updateLoanStatus('Approved')">Accept</button>
             <button type="button" class="btn btn-outline-primary w-25" (click)="updateLoanStatus('Need More Info')">Need more info</button>
-            <button type="button" class="btn btn-outline-danger w-25" (click)="updateLoanStatus('Rejected')">Reject</button> -->
+            <button type="button" class="btn btn-outline-danger w-25" (click)="updateLoanStatus('Rejected')">Reject</button>  -->
            
 
 
